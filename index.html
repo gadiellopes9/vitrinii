@@ -541,6 +541,9 @@ table.tbl{border-collapse:collapse;width:100%;font-size:.88rem;min-width:820px}
 .perks svg{width:22px;height:22px;flex:none;color:var(--rose)}
 .pdp .acc summary{text-transform:uppercase;letter-spacing:.16em;font-size:.82rem;padding-block:.35rem}
 .pdp .acc summary::after{content:"+"}.pdp .acc details[open] summary::after{content:"×"}
+.acc-list{margin:1rem 0 .3rem;padding-left:1.15rem;display:grid;gap:.6rem;font-size:.95rem;line-height:1.6}
+.acc-list li::marker{color:var(--rose)}
+.acc-more{margin:.8rem 0 .2rem;font-size:.92rem}.acc-more a{color:var(--rose-deep);text-underline-offset:3px}
 .zoom .zoom-hint{background:rgba(20,14,17,.78);color:#fff;border-radius:2px;letter-spacing:.06em;font-size:.82rem;font-weight:500;padding:.55rem .85rem;right:.9rem;bottom:.9rem}
 .zoom .zoom-hint svg{display:none}
 @media (max-width:820px){
@@ -1071,6 +1074,13 @@ const toCents=v=>{if(v===""||v==null)return null;const n=Number(String(v).replac
 const centsToInput=c=>c==null?"":(c/100).toFixed(2).replace(".",",");
 const fmtDate=t=>new Intl.DateTimeFormat("pt-PT",{dateStyle:"short",timeStyle:"short",timeZone:"Europe/Lisbon"}).format(new Date(t));
 const waLink=text=>"https://wa.me/"+BRAND.wa+"?text="+encodeURIComponent(text);
+const CARE=[
+  ["Guardar","Guarda cada peça em separado, de preferência num saquinho ou caixa própria, para evitar riscos e nós nas correntes."],
+  ["Perfumes e cremes","Evita o contacto com perfumes, cremes, lacas e outros produtos químicos. Coloca as joias só depois de te perfumares e de o creme secar."],
+  ["Água e desporto","Tira as peças antes de praticar desporto, tomar banho, ir à praia ou à piscina, ou fazer limpezas."],
+  ["Limpeza","Depois de usar, limpa suavemente com um pano macio e seco. Não uses produtos abrasivos, álcool nem escovas."],
+  ["Humidade","Guarda as peças num local seco e fresco, longe da casa de banho e da luz direta do sol."]
+];
 function track(ev,data){(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:ev,mode},data||{}))}
 function toast(msg){const t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,2800)}
 function copyText(text,fallbackEl){
@@ -1171,12 +1181,21 @@ function viewStyle(v){return v&&v.z?`object-position:${v.fx}% ${v.fy}%;transform
 function viewImg(v,p,first,eager){return `<img src="${v.src}" alt="${first?esc(p.alt):""}" width="900" height="1600" loading="${eager?"eager":"lazy"}" decoding="async" style="${viewStyle(v)}">`}
 function selMessage(city){
   const cat=catalog();const items=getSel().map(x=>({x,p:cat.find(p=>p.id===x.id)})).filter(o=>o.p);
-  return `Olá, Vitrinii! Gostava de encomendar estas peças:
+  const sh=shippingCfg();
+  const known=items.every(o=>o.p.price!=null);const sum=items.reduce((t,o)=>t+(o.p.price||0)*o.x.qty,0);
+  return `🛒 *Site Vitrinii* · A minha seleção
 
-${items.map(({x,p})=>`${x.qty} × ${p.name}, ref. ${p.ref}${p.variants[0]?" ("+variantLabel(p.variants[0])+")":""}`).join("\n")}
+Olá, Vitrinii! Fiz a minha seleção no site e gostava de encomendar estas peças:
 
-${city?`Entrega em: ${city}
-`:""}Podes confirmar o preço, a disponibilidade e os portes?`;
+${items.map(({x,p},i)=>pieceBlock(p,p.variants[0],x.qty,items.length>1?i+1:0)).join("\n\n")}
+
+🧾 Artigos: ${known?eur(sum):sum?eur(sum)+" + peças a confirmar":"a confirmar"}
+🚚 Portes: ${sh.continente.price!=null?eur(sh.continente.price)+" para Portugal continental":"a confirmar"}${city?`
+📍 Entrega em: ${city}`:""}
+
+Podes confirmar o preço, a disponibilidade e como faço o pagamento?
+
+Obrigada! 😊`;
 }
 
 /* ============ "SERVIDOR" DA PRÉVIA ============
@@ -1559,8 +1578,34 @@ function renderResults(catId){
 }
 
 function restockList(){return LS.get("vt_restock",[])}
-function orderText(p,qty){return `Olá, Vitrinii! Quero encomendar:\n${qty} × ${p.name}, ref. ${p.ref} (${variantLabel(p.variants[0])})\nPodes confirmar o preço e a disponibilidade?`}
-const SITE_URL=""; // preencher com o domínio final para ativar Facebook, Pinterest e Copiar ligação
+const pUrl=p=>SITE_URL?SITE_URL+"#p-"+p.slug:"";
+function pieceBlock(p,v,qty,n){
+  const pr=p.price!=null?`${qty>1?qty+" × "+eur(p.price)+" = *"+eur(p.price*qty)+"*":"*"+eur(p.price)+"*"}`:"_a confirmar_";
+  const cor=v&&variantLabel(v)?variantLabel(v):"";
+  return [`💎 ${n?n+". ":""}*${p.name.split(" | ")[0]}*`,
+    `Ref.: *${p.ref}*`,
+    p.finish?`Acabamento: ${p.finish}`:null,
+    cor?`Cor: ${cor.charAt(0).toUpperCase()+cor.slice(1)}`:null,
+    `Quantidade: ${qty}`,
+    `Preço: ${pr}`,
+    pUrl(p)?`🔗 ${pUrl(p)}`:null].filter(Boolean).join("\n");
+}
+function orderText(p,qty){
+  const sh=shippingCfg();const ship=sh.continente.price;const ask=p.price==null;
+  return `🛒 *Site Vitrinii* · ${ask?"Pedido de informação":"Pedido de encomenda"}
+
+Olá, Vitrinii! ${ask?"Gostava de saber o *preço* e a *disponibilidade* desta peça:":"Vi esta peça no site e quero encomendar:"}
+
+${pieceBlock(p,p.variants[0],qty)}
+${!ask?`
+🚚 Portes: ${ship!=null?eur(ship):"a confirmar"} para Portugal continental (entrega em ${sh.continente.days||"2 a 3 dias"})${ship!=null?`
+🧾 Total com portes: *${eur(p.price*qty+ship)}*`:""}
+`:""}
+${ask?"Se estiver disponível, gostava de encomendar.":"Podes confirmar a disponibilidade e dizer-me como faço o pagamento?"}
+
+Obrigada! 😊`;
+}
+const SITE_URL="https://vitrinii.vercel.app/"; // trocar pelo domínio final quando existir
 function pageProduct(slug){
   const p=bySlug(slug);
   if(!p)return `<div class="wrap page-head"><h1>Peça não encontrada</h1><p>Esta ligação pode estar desatualizada.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="#loja">Ver a coleção</a></p></div>`;
@@ -1620,15 +1665,17 @@ function pageProduct(slug){
         <li>${ICON.chat}<span>Atendimento personalizado pelo WhatsApp</span></li>
       </ul>
       <div class="acc">
-        <details open><summary>Detalhes e materiais</summary><dl>
-        <dt>Na fotografia</dt><dd>${esc(p.photo)}</dd>
-        <dt>O que inclui</dt><dd class="tbd-txt">A confirmar pela Vitrinii</dd>
-        <dt>Estilo</dt><dd>${esc((p.styles||[]).join(", "))}</dd>
-        ${p.type?`<dt>Tipo</dt><dd>${esc(p.type)}</dd>`:""}
-        <dt>${p.finish?"Acabamento":"Materiais"}</dt><dd>${p.finish?esc(p.finish):"Semijoia folheada. Ouro 18k, ródio branco e prata 925, conforme a peça"}</dd>
-        <dt>Dimensões</dt><dd class="tbd-txt">A informar pela Vitrinii</dd></dl></details>
-        <details><summary>Cuidados e conservação</summary><p style="margin-top:.8rem;color:var(--muted)">Indicações de cuidado a fornecer pela Vitrinii. <a href="#cuidados">Ver cuidados com as semijoias</a></p></details>
-        <details><summary>Envios e trocas</summary><p style="margin-top:.8rem;color:var(--muted)">Entrega em ${sh.continente.days||"2 a 3 dias"} em Portugal continental, com portes de ${cont!=null?eur(cont):"valor a confirmar"}. Madeira e Açores: portes a confirmar. Entregamos para toda a Europa, com prazo e portes sob consulta. <a href="#envios">Envios, trocas e devoluções</a></p></details>
+        <details open><summary>Detalhes e materiais</summary><ul class="acc-list">
+        <li>${p.finish?esc((p.type||"Semijoia")+" com "+p.finish.charAt(0).toLowerCase()+p.finish.slice(1)):"Semijoia folheada · ouro 18k, ródio branco ou prata 925, conforme a peça"}</li>
+        ${(p.styles||[]).length?`<li>Estilo: ${esc(p.styles.join(", "))}</li>`:""}
+        ${p.dims?`<li>Dimensões: ${esc(p.dims)}</li>`:""}
+        <li>Ref. ${esc(p.ref)}</li></ul></details>
+        <details><summary>Cuidados e conservação</summary><ul class="acc-list">${CARE.slice(0,4).map(c=>`<li>${c[1]}</li>`).join("")}</ul><p class="acc-more"><a href="#cuidados">Mais cuidados com as semijoias</a></p></details>
+        <details><summary>Entregas e trocas</summary><ul class="acc-list">
+        <li>Entrega: ${sh.continente.days||"2 a 3 dias"} em Portugal continental.</li>
+        <li>Portes: ${cont!=null?eur(cont):"a confirmar"} para Portugal continental. Madeira, Açores e restantes destinos na Europa sob consulta.</li>
+        <li>Trocas: ${(company().returnsText||"").trim()?esc(company().returnsText.trim()):"se houver algum problema com a tua peça, fala connosco pelo WhatsApp assim que receberes a encomenda."}</li></ul>
+        <p class="acc-more"><a href="#envios">Entregas e encomendas</a> · <a href="#envios">Trocas e devoluções</a></p></details>
       </div>
     </div>
   </div>
@@ -1675,29 +1722,39 @@ function pageCart(){
 
 /* ---------- Finalização pelo WhatsApp ---------- */
 const WZ={continente:"Portugal continental",madeira:"Madeira",acores:"Açores",europa:"Outro país da Europa"};
-let wa={name:"",phone:"",zone:"continente",city:"",notes:"",ref:"",errors:{},sent:false};
+let wa={name:"",phone:"",zone:"continente",city:"",notes:"",gift:false,ref:"",errors:{},sent:false};
 function waRef(){if(!wa.ref){const d=new Date();const ymd=d.toISOString().slice(2,10).replace(/-/g,"");const r=Array.from(crypto.getRandomValues(new Uint8Array(3))).map(b=>"ABCDEFGHJKLMNPQRSTUVWXYZ23456789"[b%32]).join("");wa.ref="VT"+ymd+"-"+r}return wa.ref}
 function waShip(){const sh=shippingCfg();return wa.zone==="continente"?sh.continente.price:(sh[wa.zone]&&sh[wa.zone].price!=null?sh[wa.zone].price:null)}
 function waMessage(c){
   const ship=waShip();
-  const items=c.lines.map((l,i)=>`${i+1}) ${l.p.name}\n   Ref. ${l.p.ref} · ${variantLabel(l.v)}\n   Quantidade: ${l.qty}${l.p.price!=null?` · ${eur(l.p.price)} cada · ${eur(l.total)}`:" · preço a confirmar"}`).join("\n\n");
-  const sub=c.unknown?(c.subtotal?`${eur(c.subtotal)} + peças com preço a confirmar`:"a confirmar"):eur(c.subtotal);
+  const sep="━━━━━━━━━━━━";
+  const items=c.lines.map((l,i)=>pieceBlock(l.p,l.v,l.qty,c.lines.length>1?i+1:0)+(l.pre?"\n⏳ _Peça esgotada: encomenda para quando voltar ao stock_":"")).join("\n\n");
+  const sub=c.unknown?(c.subtotal?`${eur(c.subtotal)} + peças a confirmar`:"a confirmar"):eur(c.subtotal);
   const tot=!c.unknown&&ship!=null?eur(c.subtotal+ship):"a confirmar";
-  return `Olá, Vitrinii! Quero fazer esta encomenda:
+  const zone=WZ[wa.zone];
+  const who=[`Nome: ${wa.name.trim()||"—"}`,wa.phone.trim()?`Telemóvel: ${wa.phone.trim()}`:null,`📍 Entrega: ${wa.city.trim()||"—"}, ${zone}`,wa.gift?"🎁 É para oferecer":null,wa.notes.trim()?`📝 Observações: ${wa.notes.trim()}`:null].filter(Boolean).join("\n");
+  return `🛒 *NOVA ENCOMENDA · SITE VITRINII*
+Encomenda nº *${waRef()}*
 
-Referência: ${waRef()}
+Olá, Vitrinii! Quero fazer esta encomenda:
 
+${sep}
 ${items}
+${sep}
 
-Total de peças: ${c.count}
-Valor dos artigos: ${sub}
-Portes: ${ship!=null?eur(ship)+" ("+WZ[wa.zone]+")":"a confirmar ("+WZ[wa.zone]+")"}
-Total: ${tot}
+🧾 *RESUMO*
+Peças: ${c.count}
+Artigos: ${sub}
+Portes (${zone}): ${ship!=null?eur(ship):"a confirmar"}${wa.zone==="continente"?` · entrega em ${shippingCfg().continente.days||"2 a 3 dias"}`:""}
+*Total: ${tot}*
 
-Nome: ${wa.name.trim()||"—"}${wa.phone.trim()?"\nTelemóvel: "+wa.phone.trim():""}
-Entrega: ${wa.city.trim()||"—"}, ${WZ[wa.zone]}${wa.notes.trim()?"\nObservações: "+wa.notes.trim():""}
+👤 *OS MEUS DADOS*
+${who}
 
-Podes confirmar a disponibilidade e como fazer o pagamento?`;
+✅ *PRÓXIMOS PASSOS*
+Podes confirmar a disponibilidade${c.unknown||ship==null?", o valor final":""} e enviar-me os dados para o pagamento? A morada completa e o NIF (se precisar de fatura) envio aqui na conversa.
+
+Obrigada! 😊`;
 }
 function waValid(){const e={};if(wa.name.trim().length<2)e.name="Indica o teu nome.";if(wa.city.trim().length<2)e.city="Indica a localidade de entrega.";wa.errors=e;return !Object.keys(e).length}
 function waField(id,label,opts){opts=opts||{};const err=wa.errors[id];
@@ -1718,7 +1775,8 @@ function pageWaCheckout(){
       <form class="panel form" data-form="wa" novalidate><h2 style="font-size:1.5rem">Os teus dados</h2>
         <div class="cols">${waField("name","Nome",{attrs:'autocomplete="name"'})}${waField("phone","Telemóvel",{optional:true,attrs:'type="tel" inputmode="tel" autocomplete="tel"'})}</div>
         <div class="cols"><div class="field"><label for="w_zone">Zona de entrega</label><select id="w_zone" class="input" data-wa="zone">${Object.entries(WZ).map(([k,v])=>`<option value="${k}"${wa.zone===k?" selected":""}>${v}</option>`).join("")}</select></div>${waField("city","Localidade",{attrs:'autocomplete="address-level2"'})}</div>
-        ${waField("notes","Observações",{optional:true,textarea:true,ph:"Ex.: tamanho do anel, embrulho para oferta, dia preferido para a entrega"})}
+        <label class="chk" style="display:flex;gap:.6rem;align-items:center;font-size:.92rem"><input type="checkbox" data-wa="gift"${wa.gift?" checked":""}> É para oferecer a alguém</label>
+        ${waField("notes","Observações",{optional:true,textarea:true,ph:"Ex.: tamanho do anel, dia preferido para a entrega, uma dedicatória"})}
         <p class="hint" style="font-size:.8rem;color:var(--muted)">A morada completa e o NIF são combinados depois, diretamente na conversa.</p>
       </form>
     </div>
@@ -2080,13 +2138,10 @@ function pageSelection(){
   </div>`;
 }
 function pageCare(){
-  const F2=t=>`<span class="fill">${t}</span>`;
-  return `<div class="wrap page-head"><h1>Cuidados com as <em>semijoias</em></h1><p>Indicações para manter cada peça bonita por mais tempo. Conteúdo a validar pela Vitrinii.</p></div>
+  return `<div class="wrap page-head"><h1>Cuidados com as <em>semijoias</em></h1><p>Pequenos gestos que mantêm o brilho de cada peça por muito mais tempo.</p></div>
   <div class="wrap prose">
-    <h2>Como guardar</h2><p>${F2("Texto a fornecer pela Vitrinii")}</p>
-    <h2>Água, perfumes e cremes</h2><p>${F2("Texto a fornecer pela Vitrinii")}</p>
-    <h2>Limpeza</h2><p>${F2("Texto a fornecer pela Vitrinii")}</p>
-    <h2>Garantia</h2><p>${F2("Condições de garantia a definir pela Vitrinii")}</p>
+    ${CARE.map(c=>`<h2>${c[0]}</h2><p>${c[1]}</p>`).join("")}
+    <h2>A regra de ouro</h2><p>A joia é a última coisa a pôr e a primeira a tirar: depois da maquilhagem, do perfume e do creme, e antes de dormir, do banho ou do treino.</p>
     <p><a class="btn btn-wa" href="${waLink("Olá, Vitrinii! Tenho uma dúvida sobre os cuidados com uma peça.")}" target="_blank" rel="noopener">${ICON.wa} Perguntar à Vitrinii</a></p>
   </div>`;
 }
@@ -2284,7 +2339,7 @@ document.addEventListener("click",e=>{
     case "sel-rm":setSel(getSel().filter(y=>y.id!==id));rerender();toast("Removida da tua seleção.");break;
     case "sel-wa":track("whatsapp_click",{source:"selecao",items:getSel().length});break;
     case "wa-send":{const c=normalizeCart();if(!c.lines.length){e.preventDefault();toast("O teu carrinho está vazio.");break}if(!waValid()){e.preventDefault();rerenderKeepFocus();setTimeout(()=>{const f=document.querySelector(".field.invalid .input");if(f)f.focus()},30);break}t.href=waLink(waMessage(c));track("whatsapp_click",{source:"finalizar",items:c.count});wa.sent=true;setTimeout(rerender,400);break}
-    case "wa-done":setCart([]);wa={name:wa.name,phone:wa.phone,zone:wa.zone,city:wa.city,notes:"",ref:"",errors:{},sent:false};toast("Obrigada! A Vitrinii vai responder-te no WhatsApp.");location.hash="inicio";break;
+    case "wa-done":setCart([]);wa={name:wa.name,phone:wa.phone,zone:wa.zone,city:wa.city,notes:"",gift:false,ref:"",errors:{},sent:false};toast("Obrigada! A Vitrinii vai responder-te no WhatsApp.");location.hash="inicio";break;
     case "copy-wa":{const tx=$("#waText")?$("#waText").value:waMessage(cartLines());copyText(tx,$("#waText"));break}
     case "copy-sel":copyText($("#selText").value,$("#selText"));break;
     case "sel-cart":{let n=0;getSel().forEach(x=>{const p=byId(x.id);if(orderable(p)&&addToCart(p.id,p.variants[0].id,x.qty))n++});if(n)openDrawer();break}
@@ -2345,6 +2400,7 @@ document.addEventListener("change",e=>{
   }
   if(t.id==="shopSort"){shopState.sort=t.value;renderResults(CATS.some(c=>c.id===currentRoute)?currentRoute:null)}
   if(t.dataset.wa==="zone"){wa.zone=t.value;rerenderKeepFocus()}
+  if(t.dataset.wa==="gift"){wa.gift=t.checked;waRefresh()}
   if(t.dataset.co){const k=t.dataset.co;co.data[k]=t.type==="checkbox"?t.checked:t.value;if(k==="mbAlt"||k==="pay"||k==="country"||(k==="cp"&&co.step===2))rerenderKeepFocus()}
   if(t.dataset.act==="line-set"){const c=getCart();const l=c.find(x=>x.id===t.dataset.id&&x.v===t.dataset.v);if(l){const p=byId(l.id);l.qty=Math.max(1,Math.min(p?(l.pre?5:maxQty(p)):1,parseInt(t.value,10)||1));setCart(c);refreshCartViews()}}
   if(t.dataset.act==="trkcode"){const o=Server.get(t.dataset.ref);if(o){o.tracking=t.value.trim();o.log.push({t:Date.now(),m:"Seguimento: "+o.tracking});Server.save(o);toast("Código de seguimento guardado.")}}
@@ -2356,7 +2412,7 @@ document.addEventListener("change",e=>{
 document.addEventListener("input",e=>{
   const t=e.target;
   if(t.dataset.trk){trk[t.dataset.trk]=t.value}
-  if(t.dataset.wa){wa[t.dataset.wa]=t.value;if(wa.errors[t.dataset.wa]){delete wa.errors[t.dataset.wa];const f=t.closest(".field");if(f){f.classList.remove("invalid");const er=f.querySelector(".err");if(er)er.remove()}}waRefresh()}
+  if(t.dataset.wa&&t.type!=="checkbox"){wa[t.dataset.wa]=t.value;if(wa.errors[t.dataset.wa]){delete wa.errors[t.dataset.wa];const f=t.closest(".field");if(f){f.classList.remove("invalid");const er=f.querySelector(".err");if(er)er.remove()}}waRefresh()}
   if(t.id==="selCity"){selCity=t.value;const m=selMessage(selCity);$("#selText").value=m;$("#selWa").href=waLink(m)}
   if(t.id==="shopSearch"){shopState.q=t.value;renderResults(CATS.some(c=>c.id===currentRoute)?currentRoute:null)}
   if(t.dataset.co&&t.type!=="checkbox"){co.data[t.dataset.co]=t.value;if(t.dataset.co==="cp"&&co.data.country==="PT"){let v=t.value.replace(/[^\d]/g,"").slice(0,7);if(v.length>4)v=v.slice(0,4)+"-"+v.slice(4);t.value=v;co.data.cp=v}}
