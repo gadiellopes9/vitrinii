@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#E3BFC3">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="description" content="Vitrinii by Yara Lauer: joias e semijoias brasileiras em Portugal. Envios para todo o país e entregas para toda a Europa.">
 <meta property="og:title" content="Vitrinii · Joias e semijoias brasileiras em Portugal">
 <meta property="og:description" content="O detalhe que faltava está aqui. Envios para todo o país e entregas para toda a Europa.">
@@ -938,6 +938,44 @@ footer{background:linear-gradient(180deg,rgba(255,246,247,0) 0%,rgba(255,246,247
 .twins{display:inline-flex;gap:.4rem;margin-left:.8rem;vertical-align:middle}
 .twin{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(58,31,38,.25);padding:.3rem .7rem;text-decoration:none;color:var(--ink);background:rgba(255,255,255,.3)}
 .twin.on{border-color:var(--ink);background:#FFF6F7}
+
+/* ===== fundo branco (pedido da cliente): rosa fica só nos detalhes ===== */
+:root:not(#_){
+  --bg:#FFFFFF; --surface:#FFFFFF; --blush:#F9E9EB; --blush-2:#FCF3F4; --line:rgba(58,31,38,.12);
+  --grad-page:#FFFFFF;
+  --grad-soft:linear-gradient(180deg,#FFFFFF 0%,#FDF4F5 100%);
+  --grad-alt:linear-gradient(180deg,#FFFFFF 0%,#FCF1F2 50%,#FFFFFF 100%);
+}
+html,body{background:#FFFFFF}
+body::before{background:#FFFFFF}
+.site-header{background:rgba(255,255,255,.92);box-shadow:0 10px 24px -20px rgba(90,30,40,.35)}
+.alt,.feature.alt{background:linear-gradient(180deg,#FFFFFF 0%,#FCF1F2 120px,#FCF1F2 calc(100% - 120px),#FFFFFF 100%)}
+.band{background:linear-gradient(180deg,#FFFFFF 0%,#FCF1F2 120px,#FCF1F2 calc(100% - 120px),#FFFFFF 100%)!important}
+.dhero{background:linear-gradient(180deg,#FFFFFF 0%,#FDF4F5 100%)}
+.dhero .copy{background:none}
+.dhero .media::after{background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55))}
+footer{background:linear-gradient(180deg,#FFFFFF 0%,#FCF1F2 140px,#FAEBED 100%);border-top:0}
+.panel{background:#FFFFFF;border-color:rgba(58,31,38,.12);box-shadow:0 14px 34px -26px rgba(90,30,40,.35)}
+.drawer,.mobile-nav{background:#FFFFFF}
+.search-ov{background:rgba(255,255,255,.98)}
+.btn-soft{background:#F9E9EB}
+.dcat.empty{background:#FCF3F4;border-color:rgba(58,31,38,.16)}
+.ds-tabs button,.ctabs a{background:#FFFFFF;border-color:rgba(58,31,38,.16)}
+.ds-tabs button[aria-pressed="true"],.ctabs a[aria-current="page"]{background:#FCF1F2}
+.contact-cards a{background:#FFFFFF;border-color:rgba(58,31,38,.12)}
+.perks{background:#FCF1F2}
+.empty-state{background:#FCF3F4;border-color:rgba(58,31,38,.16)}
+.thumb,.qty-sq{background:#FFFFFF;border-color:rgba(58,31,38,.15)}
+.note{background:#FCF3F4}
+.input,select.input,textarea.input{background:#FFFFFF;border-color:rgba(58,31,38,.2)}
+#veil{background:#FFFFFF}
+.hs{background:#FFFFFF}
+.hs-slide.side-l::before{background:linear-gradient(90deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.74) 30%,rgba(255,255,255,0) 52%)}
+.hs-slide.side-r::before{background:linear-gradient(270deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.86) 30%,rgba(255,255,255,.4) 42%,rgba(255,255,255,0) 55%)}
+@media (max-width:820px){
+  .hs-slide{background:#FFFFFF}
+  .hs-media::after{background:linear-gradient(180deg,rgba(255,255,255,0),#FFFFFF)}
+}
 </style>
 </head>
 <body>
