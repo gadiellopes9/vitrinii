@@ -813,7 +813,7 @@ footer{background:linear-gradient(180deg,rgba(255,246,247,0) 0%,rgba(255,246,247
 .wm-wrap{padding-block:1rem 2.4rem;text-align:center}
 .wm{width:min(60%,320px);height:auto;margin:0 auto;opacity:.22}
 .site-header .hdr-actions,.site-header .hdr-left{gap:0}
-.site-header .icon-btn{width:44px;height:44px;margin-inline:-3px}
+.site-header .icon-btn{width:36px;height:40px}
 @media (max-width:820px){.dhero .media::after{top:auto;left:0;width:auto;height:30%;background:linear-gradient(180deg,rgba(227,191,195,0),rgba(227,191,195,.6))}}
 
 /* categorias: carrossel com card central em destaque, encaixe e inércia */
@@ -1011,50 +1011,6 @@ footer{background:linear-gradient(180deg,#FFFFFF 0%,#FCF1F2 140px,#FAEBED 100%);
   .hs-slide{background:#FFFFFF}
   .hs-media::after{background:linear-gradient(180deg,rgba(255,255,255,0),#FFFFFF)}
 }
-
-/* ===== leis de UX: um caminho de compra, WhatsApp verde, toques de 44px ===== */
-.fab{background:#25D366!important;color:#fff!important;box-shadow:0 12px 28px -10px rgba(18,140,74,.55)!important}
-.fab:hover{background:#1EBE5A!important}
-.btn-wa{background:#1F8A50;color:#fff}.btn-wa:hover{background:#18723F}
-.ask-wa{display:inline-flex;align-items:center;gap:.5rem;justify-self:start;margin-top:.2rem;font-size:.9rem;font-weight:500;color:#167A45;text-decoration:none;min-height:44px}
-.ask-wa svg{width:20px;height:20px;color:#25D366}
-.ask-wa:hover{text-decoration:underline;text-underline-offset:3px}
-.share2{margin-top:1.6rem}
-.card{display:flex;flex-direction:column}
-.card-buy{display:none}
-@media (hover:none){
-  .card-media .hover-cta{display:none!important}
-  .card-buy{display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;min-height:44px;margin-top:auto;padding:0 .5rem;border:0;border-radius:2px;background:var(--grad-btn);color:#fff;font:600 12px/1.1 var(--f-body);letter-spacing:.02em;cursor:pointer}
-  .card>div:nth-child(2){margin-bottom:.6rem}
-  .card-buy svg{width:15px;height:15px;flex:none}
-  .dcat-w .hover-cta{min-height:44px;font-size:12px;letter-spacing:.02em;text-transform:none;font-weight:600}
-}
-.co-steps{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin:1rem 0 .4rem;padding:0;font-size:.82rem;color:var(--muted)}
-.co-steps li{display:flex;align-items:center;gap:.5rem}
-.co-steps li span{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(58,31,38,.25);font-size:.75rem;font-weight:600}
-.co-steps li.on{color:var(--ink);font-weight:600}.co-steps li.on span{background:var(--rose-deep);border-color:var(--rose-deep);color:#fff}
-.co-steps li.done span{background:#F3DADD;border-color:#F3DADD;color:var(--rose-deep)}
-.mgal{display:none}
-@media (max-width:820px){
-  .topbar{font-size:.6rem;letter-spacing:.1em}.topbar .wrap{padding-block:.4rem;flex-wrap:nowrap;white-space:nowrap;overflow:hidden}
-  .hs-media{aspect-ratio:auto!important;height:clamp(230px,44svh,110vw)}
-  .hs-copy .eyebrow{display:none}
-  .hs-copy{padding-top:.9rem!important;gap:.55rem!important}
-  .mgal{display:block;position:relative;margin-inline:calc(-1 * var(--gut-l)) calc(-1 * var(--gut-r))}
-  .mgal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .mgal-track::-webkit-scrollbar{display:none}
-  .mgal-s{flex:0 0 100%;scroll-snap-align:center;margin:0;position:relative;aspect-ratio:4/5;max-height:50svh;overflow:hidden;background:var(--blush-2)}
-  .mgal-s img{width:100%;height:100%;object-fit:cover;display:block}
-  .mgal-s .badge{position:absolute;left:.7rem;top:.7rem;font-size:.62rem;background:rgba(255,255,255,.9);color:var(--ink)}
-  .mgal-dots{display:flex;justify-content:center;gap:6px;padding:.7rem 0 .2rem}
-  .mgal-dots i{width:6px;height:6px;border-radius:99px;background:rgba(58,31,38,.22);transition:width .3s,background .3s}
-  .mgal-dots i.on{width:22px;background:var(--rose-deep)}
-  .zoom.has-mgal,.gallery .thumbs,.gallery .photo-cap{display:none!important}
-  .pdp .buy-row2{display:flex;gap:.6rem}
-  .pdp-top .crumbs>span:nth-last-child(-n+2){display:none}
-  .pdp-top{padding-block:.6rem 0!important}.pdp-top .crumbs{margin:0}
-  .pdp{padding-top:.4rem!important}
-}
 </style>
 </head>
 <body>
@@ -1069,7 +1025,7 @@ footer{background:linear-gradient(180deg,#FFFFFF 0%,#FCF1F2 140px,#FAEBED 100%);
     </div>
     <a class="logo" href="#inicio" aria-label="Vitrinii, página inicial"><img src="img/logo-vitrinii.png" alt="Vitrinii" width="720" height="323"><span class="logo-tag">Joias &amp; semijoias</span></a>
     <div class="hdr-actions">
-      <a class="icon-btn" href="#selecao" aria-label="Os meus favoritos"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg><span class="cart-count tab" id="selCount" hidden>0</span></a>
+      <a class="icon-btn" href="#selecao" aria-label="A minha seleção"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg><span class="cart-count tab" id="selCount" hidden>0</span></a>
       <a class="icon-btn" href="https://www.instagram.com/entrevitrinii/" target="_blank" rel="noopener" aria-label="Instagram da Vitrinii (@entrevitrinii)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
       <button class="icon-btn" data-act="cart" aria-label="Abrir carrinho"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="cart-count tab" id="cartCount" hidden>0</span></button>
     </div>
@@ -1099,58 +1055,58 @@ const J=(src,fx,fy,z)=>({src,label:"A joia",fx,fy,z});
 const D=(src,fx,fy,z)=>({src,label:"Detalhe",fx,fy,z});
 const M=src=>({src,label:"Na modelo"});
 const BASE=[
- {id:"p26",twin:"p24",slug:"argolas-elo-rodio-branco",ref:"VTL7964-RB",cat:"brincos",name:"Argolas Elo | Banho de Ródio Branco",live:{price:2490,stock:null,status:"publicado",publishedAt:1793217400000},type:"Semijoia",finish:"Banho de ródio branco",desc:"Com um design moderno de três aros unidos, as Argolas Elo são perfeitas para quem procura um acessório elegante e versátil. O acabamento prateado acrescenta um toque sofisticado ao visual, ideal para complementar diferentes looks.",img:"img/argolas-elo-rodio-1.webp",alt:"Argolas Elo prateadas de três aros unidos, com banho de ródio branco, usadas na orelha",variants:[{id:"v1",color:null,tone:"Prateado"}],photo:"Fotografia em uso",styles:["Argola","Statement"],
-  views:[{src:"img/argolas-elo-rodio-1.webp",label:"A joia"},{src:"img/argolas-elo-rodio-2.webp",label:"Na modelo"},{src:"img/argolas-elo-rodio-3.webp",label:"O par"},{src:"img/argolas-elo-rodio-5.webp",label:"De perfil"},{src:"img/argolas-elo-rodio-4.webp",label:"Outra vista"}]},
- {id:"p25",slug:"brincos-prisma",ref:"VTL7936",cat:"brincos",name:"Brincos Prisma | Banho de Ouro 18K",live:{price:2490,stock:null,status:"publicado",publishedAt:1793216800000},type:"Semijoia",finish:"Banho de ouro 18K",desc:"Com um design geométrico e acabamento dourado brilhante, os Brincos Prisma são ideais para quem gosta de acessórios modernos e marcantes. O seu formato triangular dá personalidade ao visual e acrescenta um toque sofisticado a qualquer look.",img:"img/brincos-prisma-1.webp",alt:"Brinco Prisma dourado de formato triangular com volume, usado na orelha",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso",styles:["Geométrico","Statement"],
-  views:[{src:"img/brincos-prisma-1.webp",label:"A joia"},{src:"img/brincos-prisma-2.webp",label:"Na modelo"},{src:"img/brincos-prisma-5.webp",label:"O par"},{src:"img/brincos-prisma-4.webp",label:"De perfil"},{src:"img/brincos-prisma-3.webp",label:"Outra vista"}]},
- {id:"p24",twin:"p26",slug:"argolas-elo",ref:"VTL7964",cat:"brincos",name:"Argolas Elo | Banho de Ouro 18K",live:{price:2490,stock:null,status:"publicado",publishedAt:1793174400000},type:"Semijoia",finish:"Banho de ouro 18K",desc:"Com um design moderno de três aros unidos, as Argolas Elo são perfeitas para quem procura um acessório elegante e versátil. O acabamento dourado acrescenta um toque sofisticado ao visual, ideal para complementar diferentes looks.",img:"img/argolas-elo-1.webp",alt:"Argolas Elo douradas de três aros unidos, usadas na orelha",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola","Statement"],
-  views:[{src:"img/argolas-elo-1.webp",label:"A joia"},{src:"img/argolas-elo-2.webp",label:"Na modelo"},{src:"img/argolas-elo-3.webp",label:"De perfil"},{src:"img/argolas-elo-4.webp",label:"Outra vista"},{src:"img/argolas-elo-5.webp",label:"Outra vista"},{src:"img/argolas-elo-6.webp",label:"Detalhe"}]},
- {id:"p13",slug:"conjunto-gota-brilhos",ref:"VT-013",cat:"conjuntos",blurb:"Gota cravejada de brilhos no colar e no brinco, numa corrente fina. Delicado, luminoso e fácil de usar todos os dias.",name:"Conjunto Gota com Brilhos | Dourado",img:"img/conjunto-gota-brilhos.webp",alt:"Colar com pendente em gota cravejado de pequenas pedras e brinco igual, em tom dourado, usados por uma modelo",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Colar e brinco, fotografia em uso",styles:["Com pedras","Gota","Delicado"],
-  views:[J("img/conjunto-gota-brilhos.webp",42,70,3.2),M("img/conjunto-gota-brilhos.webp")]},
- {id:"p17",slug:"bracelete-coracoes",ref:"VT-017",cat:"pulseiras",blurb:"Dois corações lado a lado: um cravejado de brilhos e outro vazado com bolinhas douradas. Um bracelete com significado.",name:"Bracelete Corações | Dourado",img:"img/bracelete-coracoes.webp",alt:"Bracelete rígido em tom dourado com dois corações, um cravejado de pequenas pedras e outro vazado com contorno de bolinhas",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Bracelete",styles:["Coração","Com pedras"],
-  views:[{src:"img/bracelete-coracoes.webp",label:"A joia"},D("img/bracelete-coracoes.webp",45,57,1.4),{src:"img/pulseiras-coracoes-medalha.webp",label:"Outra vista"}]},
- {id:"p14",slug:"brincos-coracao-cristal",ref:"VT-014",cat:"brincos",blurb:"Coração em cristal transparente rodeado de pequenos brilhos. Romântico e cheio de luz.",name:"Brincos Coração Cristal | Dourado",img:"img/brincos-coracao-cristal.webp",alt:"Brinco em forma de coração com pedra transparente e contorno de pequenas pedras, em tom dourado, usado na orelha",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Coração","Com pedras"],
-  views:[J("img/brincos-coracao-cristal.webp",53,60,2.2),M("img/brincos-coracao-cristal.webp")]},
- {id:"p11",slug:"colar-perolas",ref:"VT-011",cat:"colares",blurb:"Corrente fina com pérolas de formato irregular espaçadas ao longo do colar. Clássico com um toque moderno.",name:"Colar com Pérolas | Dourado",img:"img/colar-perolas-coracoes.webp",alt:"Colar de corrente fina em tom dourado com pérolas de formato irregular, usado ao pescoço junto de uma corrente de corações",variants:[{id:"v1",color:"Pérola",tone:"Dourado"}],photo:"Fotografia em uso, junto do colar de corações",styles:["Estilo pérola","Delicado"],
-  views:[J("img/colar-perolas-coracoes.webp",30,45,1.5),M("img/colar-perolas-coracoes.webp")]},
- {id:"p12",slug:"colar-corrente-coracoes",ref:"VT-012",cat:"colares",blurb:"Corrente feita de pequenos elos em forma de coração. Fica linda sozinha ou com outros colares.",name:"Colar Corrente de Corações | Dourado",img:"img/colar-perolas-coracoes.webp",alt:"Corrente em tom dourado com elos em forma de coração, usada ao pescoço junto de um colar de pérolas",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso, junto do colar de pérolas",styles:["Coração","Corrente","Delicado"],
-  views:[J("img/colar-perolas-coracoes.webp",68,25,1.9),M("img/colar-perolas-coracoes.webp")]},
- {id:"p22",slug:"colar-pendentes-cruz-concha-coracao",ref:"VT-022",cat:"colares",blurb:"Cruz, concha com brilhos e coração no mesmo colar. Fé, amor e brilho para levares contigo.",name:"Colar com Pendentes Cruz, Concha e Coração | Dourado",img:"img/colar-pendentes-fe.webp",alt:"Colar de corrente em tom dourado com argola e três pendentes: cruz, concha cravejada e coração",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Colar com três pendentes",styles:["Pendente","Religioso","Coração"],
-  views:[{src:"img/colar-pendentes-fe.webp",label:"A joia"},D("img/colar-pendentes-fe.webp",40,75,1.4)]},
- {id:"p23",slug:"conjunto-gota-fucsia",ref:"VT-023",cat:"conjuntos",blurb:"Pedra em gota fúcsia no colar e nos brincos, com pequenas pedras ao longo da corrente. Uma peça de presença.",name:"Conjunto Gota Fúcsia | Prateado",img:"img/conjunto-gota-fucsia.webp",alt:"Colar em tom prateado com pendente em gota fúcsia e duas pequenas pedras na corrente, com brincos em gota iguais, num expositor creme",variants:[{id:"v1",color:"Fúcsia",tone:"Prateado"}],photo:"Colar e par de brincos",styles:["Com pedras","Gota"],
-  views:[{src:"img/conjunto-gota-fucsia.webp",label:"A joia"},D("img/conjunto-gota-fucsia.webp",40,85,1.6)]},
- {id:"p15",slug:"brincos-trio-brilhos",ref:"VT-015",cat:"brincos",blurb:"Três aros num só brinco: dois cravejados de brilhos e um liso ao centro. Efeito de várias argolas sem precisar de mais furos.",name:"Brincos Trio com Brilhos | Dourado",img:"img/brincos-trio-brilhos.webp",alt:"Brinco em tom dourado com três aros, dois cravejados de pequenas pedras e um liso, usado na orelha",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola","Com pedras"],
-  views:[J("img/brincos-trio-brilhos.webp",52,68,2.0),M("img/brincos-trio-brilhos.webp")]},
- {id:"p21",slug:"argola-cravejada-dourada",ref:"VT-021",cat:"brincos",blurb:"Argola larga com fileiras de brilhos e acabamento trabalhado. Sofisticada de dia e de noite.",name:"Argola Cravejada | Dourado",img:"img/argola-cravejada-dourada.webp",alt:"Argola larga em tom dourado cravejada de pequenas pedras, usada na orelha por uma modelo de cabelo cacheado",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola","Com pedras"],
-  views:[J("img/argola-cravejada-dourada.webp",55,70,2.6),M("img/argola-cravejada-dourada.webp")]},
- {id:"p19",slug:"argolas-duplas-prateadas",ref:"VT-019",cat:"brincos",blurb:"Argola dupla: uma fileira de brilhos redondos e outra de pedras baguete. Muito brilho num só brinco.",name:"Argolas Duplas Cravejadas | Prateado",img:"img/argolas-duplas-prateadas.webp",alt:"Par de argolas duplas em tom prateado, uma faixa com pequenas pedras redondas e outra com pedras baguete",variants:[{id:"v1",color:"Transparente",tone:"Prateado"}],photo:"Par de brincos",styles:["Argola","Com pedras"],
-  views:[{src:"img/argolas-duplas-prateadas.webp",label:"A joia"},D("img/argolas-duplas-prateadas.webp",50,48,1.5)]},
- {id:"p20",slug:"brincos-halo-redondos",ref:"VT-020",cat:"brincos",blurb:"Pedra redonda transparente com duplo contorno de brilhos. O ponto de luz que combina com tudo.",name:"Brincos Halo Redondos | Dourado",img:"img/brincos-halo-redondos.webp",alt:"Par de brincos redondos em tom dourado com pedra central transparente e duplo contorno de pequenas pedras, seguros entre os dedos",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Par de brincos",styles:["Com pedras","Ponto de luz"],
-  views:[{src:"img/brincos-halo-redondos.webp",label:"A joia"},D("img/brincos-halo-redondos.webp",52,52,1.5)]},
- {id:"p18",slug:"pulseira-medalha-brilhos",ref:"VT-018",cat:"pulseiras",blurb:"Corrente fina com uma medalha redonda cravejada de brilhos. Discreta e elegante.",name:"Pulseira Medalha com Brilhos | Dourado",img:"img/pulseiras-coracoes-medalha.webp",alt:"Pulseira de corrente fina em tom dourado com medalha redonda cravejada de pequenas pedras, sobre uma caixa rosa",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Pulseira, junto do bracelete corações",styles:["Com pedras","Delicado"],
-  views:[J("img/pulseiras-coracoes-medalha.webp",42,37,2.4),{src:"img/pulseiras-coracoes-medalha.webp",label:"Outra vista"}]},
- {id:"p16",slug:"aneis-onda-aviao",ref:"VT-016",cat:"aneis",blurb:"Dois anéis finos: uma onda e um avião. Para quem gosta de mar e de viajar.",name:"Anéis Onda e Avião | Prateado",img:"img/aneis-onda-aviao.webp",alt:"Dois anéis finos em tom prateado, um em forma de onda e outro com um avião, numa caixa de veludo rosa",variants:[{id:"v1",color:null,tone:"Prateado"}],photo:"Anel onda e anel avião",styles:["Delicado","Minimalista"],
-  views:[{src:"img/aneis-onda-aviao.webp",label:"A joia"},D("img/aneis-onda-aviao.webp",55,55,1.5)]},
- {id:"p1",blurb:"Pendente quadrado em rosa suave, rodeado de pequenos brilhos, com brincos a condizer. Delicado no dia a dia e bonito numa ocasião especial.",slug:"conjunto-quadrado-rosa",ref:"VT-001",cat:"conjuntos",name:"Conjunto Quadrado Rosa | Dourado",img:"img/conjunto-rosa.webp",alt:"Colar com pendente quadrado rosa contornado por pequenas pedras transparentes e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Rosa",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
-  views:[{src:"img/conjunto-rosa.webp",label:"A joia"},D("img/conjunto-rosa.webp",52,60,1.7),{src:"img/conjunto-rosa-2.webp",label:"Outra vista"}]},
- {id:"p10",blurb:"Coração azul intenso com contorno de brilhos, no colar e no brinco. Um toque de cor que não passa despercebido.",slug:"conjunto-coracao-azul",ref:"VT-010",cat:"conjuntos",name:"Conjunto Coração Azul | Prateado",img:"img/conjunto-coracao-azul.webp",alt:"Colar com pendente em coração azul contornado por pequenas pedras e brinco igual, em tom prateado, usados por uma modelo",variants:[{id:"v1",color:"Azul",tone:"Prateado"}],photo:"Colar e brinco, fotografia em uso",styles:["Com pedras","Coração"],
-  views:[J("img/conjunto-coracao-azul.webp",53,72,2.2),M("img/conjunto-coracao-azul.webp")]},
- {id:"p8",blurb:"Gargantilha de contas douradas e contas em tom pérola, com dois trevos: um liso e outro com brilhos.",slug:"colar-choker-trevos",ref:"VT-008",cat:"colares",name:"Colar Gargantilha com Trevos | Dourado",img:"img/colar-trevos.webp",alt:"Colar curto de contas douradas e contas brancas tipo pérola, com dois pendentes em forma de trevo, um liso e outro com pequenas pedras, usado ao pescoço",variants:[{id:"v1",color:"Pérola",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Trevo","Estilo pérola","Gargantilha"],
-  views:[J("img/colar-trevos.webp",48,45,1.6),M("img/colar-trevos.webp")]},
- {id:"p9",blurb:"Duas faixas cravejadas que se cruzam junto à orelha. Brilho discreto, efeito marcante.",slug:"brincos-cruzados-brilhos",ref:"VT-009",cat:"brincos",name:"Brincos Cruzados com Brilhos | Dourado",img:"img/brincos-cruzados.webp",alt:"Brinco em forma de X com duas faixas cravejadas de pequenas pedras, em tom dourado, usado na orelha",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Com pedras","Cruzado"],
-  views:[J("img/brincos-cruzados.webp",57,52,2.4),M("img/brincos-cruzados.webp")]},
- {id:"p2",blurb:"Pendente quadrado verde rodeado de pequenos brilhos, com brincos a condizer. Uma cor profunda num desenho clássico.",slug:"conjunto-quadrado-verde",ref:"VT-002",cat:"conjuntos",name:"Conjunto Quadrado Verde | Dourado",img:"img/conjunto-verde.webp",alt:"Colar com pendente quadrado verde contornado por pequenas pedras transparentes e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Verde",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
-  views:[{src:"img/conjunto-verde.webp",label:"A joia"},D("img/conjunto-verde.webp",60,63,1.7)]},
- {id:"p3",blurb:"Pendente quadrado vermelho com contorno de brilhos e brincos a condizer. Clássico e cheio de presença.",slug:"conjunto-quadrado-vermelho",ref:"VT-003",cat:"conjuntos",name:"Conjunto Quadrado Vermelho | Dourado",img:"img/conjunto-vermelho.webp",alt:"Colar com pendente quadrado vermelho contornado por pequenas pedras transparentes e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Vermelho",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
-  views:[{src:"img/conjunto-vermelho.webp",label:"A joia"},D("img/conjunto-vermelho.webp",60,55,1.7)]},
- {id:"p7",blurb:"Argolas largas em tom dourado, com volume e linhas suaves. Elevam qualquer visual.",slug:"argolas-douradas",ref:"VT-007",cat:"brincos",name:"Argolas Largas | Dourado",img:"img/argolas-douradas.webp",alt:"Argolas largas em tom dourado, fotografadas em uso na orelha",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola"],
-  views:[J("img/argolas-douradas.webp",48,50,2.0),M("img/argolas-douradas.webp")]},
- {id:"p4",blurb:"Pedra quadrada transparente rodeada de brilhos, no colar e nos brincos, em tom dourado. Combina com tudo.",slug:"conjunto-quadrado-transparente-dourado",ref:"VT-004",cat:"conjuntos",name:"Conjunto Quadrado Transparente | Dourado",img:"img/conjunto-dourado-transparente.webp",alt:"Colar com pendente quadrado transparente e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
-  views:[{src:"img/conjunto-dourado-transparente.webp",label:"A joia"},D("img/conjunto-dourado-transparente.webp",60,58,1.7)]},
- {id:"p5",blurb:"A versão em tom prateado do conjunto quadrado transparente. Brilho limpo e elegante.",slug:"conjunto-quadrado-transparente-prateado",ref:"VT-005",cat:"conjuntos",name:"Conjunto Quadrado Transparente | Prateado",img:"img/conjunto-prateado-transparente.webp",alt:"Colar com pendente quadrado transparente e par de brincos iguais, em tom prateado, sobre cetim creme",variants:[{id:"v1",color:"Transparente",tone:"Prateado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
-  views:[{src:"img/conjunto-prateado-transparente.webp",label:"A joia"},D("img/conjunto-prateado-transparente.webp",62,63,1.7)]},
- {id:"p6",blurb:"Pedra oval transparente com contorno de brilhos, no colar e nos brincos. Um clássico que fica sempre bem.",slug:"conjunto-oval-transparente",ref:"VT-006",cat:"conjuntos",name:"Conjunto Oval Transparente | Dourado",img:"img/conjunto-oval-transparente.webp",alt:"Colar com pendente oval transparente contornado por pequenas pedras e par de brincos ovais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Oval"],
-  views:[{src:"img/conjunto-oval-transparente.webp",label:"A joia"},D("img/conjunto-oval-transparente.webp",60,60,1.7)]}
+ {id:"p26",twin:"p24",slug:"argolas-elo-rodio-branco",ref:"VTL7964-RB",cat:"brincos",name:"Argolas Elo | Banho de Ródio Branco",live:{price:2490,stock:null,status:"publicado",publishedAt:1793217400000},type:"Semijoia",finish:"Banho de ródio branco",desc:"Com um design moderno de três aros unidos, as Argolas Elo são perfeitas para quem procura um acessório elegante e versátil. O acabamento prateado acrescenta um toque sofisticado ao visual, ideal para complementar diferentes looks.",img:"img/argolas-elo-rodio-1.jpg",alt:"Argolas Elo prateadas de três aros unidos, com banho de ródio branco, usadas na orelha",variants:[{id:"v1",color:null,tone:"Prateado"}],photo:"Fotografia em uso",styles:["Argola","Statement"],
+  views:[{src:"img/argolas-elo-rodio-1.jpg",label:"A joia"},{src:"img/argolas-elo-rodio-2.jpg",label:"Na modelo"},{src:"img/argolas-elo-rodio-3.jpg",label:"O par"},{src:"img/argolas-elo-rodio-5.jpg",label:"De perfil"},{src:"img/argolas-elo-rodio-4.jpg",label:"Outra vista"}]},
+ {id:"p25",slug:"brincos-prisma",ref:"VTL7936",cat:"brincos",name:"Brincos Prisma | Banho de Ouro 18K",live:{price:2490,stock:null,status:"publicado",publishedAt:1793216800000},type:"Semijoia",finish:"Banho de ouro 18K",desc:"Com um design geométrico e acabamento dourado brilhante, os Brincos Prisma são ideais para quem gosta de acessórios modernos e marcantes. O seu formato triangular dá personalidade ao visual e acrescenta um toque sofisticado a qualquer look.",img:"img/brincos-prisma-1.jpg",alt:"Brinco Prisma dourado de formato triangular com volume, usado na orelha",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso",styles:["Geométrico","Statement"],
+  views:[{src:"img/brincos-prisma-1.jpg",label:"A joia"},{src:"img/brincos-prisma-2.jpg",label:"Na modelo"},{src:"img/brincos-prisma-5.jpg",label:"O par"},{src:"img/brincos-prisma-4.jpg",label:"De perfil"},{src:"img/brincos-prisma-3.jpg",label:"Outra vista"}]},
+ {id:"p24",twin:"p26",slug:"argolas-elo",ref:"VTL7964",cat:"brincos",name:"Argolas Elo | Banho de Ouro 18K",live:{price:2490,stock:null,status:"publicado",publishedAt:1793174400000},type:"Semijoia",finish:"Banho de ouro 18K",desc:"Com um design moderno de três aros unidos, as Argolas Elo são perfeitas para quem procura um acessório elegante e versátil. O acabamento dourado acrescenta um toque sofisticado ao visual, ideal para complementar diferentes looks.",img:"img/argolas-elo-1.jpg",alt:"Argolas Elo douradas de três aros unidos, usadas na orelha",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola","Statement"],
+  views:[{src:"img/argolas-elo-1.jpg",label:"A joia"},{src:"img/argolas-elo-2.jpg",label:"Na modelo"},{src:"img/argolas-elo-3.jpg",label:"De perfil"},{src:"img/argolas-elo-4.jpg",label:"Outra vista"},{src:"img/argolas-elo-5.jpg",label:"Outra vista"},{src:"img/argolas-elo-6.jpg",label:"Detalhe"}]},
+ {id:"p13",slug:"conjunto-gota-brilhos",ref:"VT-013",cat:"conjuntos",blurb:"Gota cravejada de brilhos no colar e no brinco, numa corrente fina. Delicado, luminoso e fácil de usar todos os dias.",name:"Conjunto gota com brilhos, tom dourado",img:"img/conjunto-gota-brilhos.jpg",alt:"Colar com pendente em gota cravejado de pequenas pedras e brinco igual, em tom dourado, usados por uma modelo",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Colar e brinco, fotografia em uso",styles:["Com pedras","Gota","Delicado"],
+  views:[J("img/conjunto-gota-brilhos.jpg",42,70,3.2),M("img/conjunto-gota-brilhos.jpg")]},
+ {id:"p17",slug:"bracelete-coracoes",ref:"VT-017",cat:"pulseiras",blurb:"Dois corações lado a lado: um cravejado de brilhos e outro vazado com bolinhas douradas. Um bracelete com significado.",name:"Bracelete corações, tom dourado",img:"img/bracelete-coracoes.jpg",alt:"Bracelete rígido em tom dourado com dois corações, um cravejado de pequenas pedras e outro vazado com contorno de bolinhas",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Bracelete",styles:["Coração","Com pedras"],
+  views:[{src:"img/bracelete-coracoes.jpg",label:"A joia"},D("img/bracelete-coracoes.jpg",45,57,1.4),{src:"img/pulseiras-coracoes-medalha.jpg",label:"Outra vista"}]},
+ {id:"p14",slug:"brincos-coracao-cristal",ref:"VT-014",cat:"brincos",blurb:"Coração em cristal transparente rodeado de pequenos brilhos. Romântico e cheio de luz.",name:"Brincos coração cristal, tom dourado",img:"img/brincos-coracao-cristal.jpg",alt:"Brinco em forma de coração com pedra transparente e contorno de pequenas pedras, em tom dourado, usado na orelha",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Coração","Com pedras"],
+  views:[J("img/brincos-coracao-cristal.jpg",53,60,2.2),M("img/brincos-coracao-cristal.jpg")]},
+ {id:"p11",slug:"colar-perolas",ref:"VT-011",cat:"colares",blurb:"Corrente fina com pérolas de formato irregular espaçadas ao longo do colar. Clássico com um toque moderno.",name:"Colar com pérolas, tom dourado",img:"img/colar-perolas-coracoes.jpg",alt:"Colar de corrente fina em tom dourado com pérolas de formato irregular, usado ao pescoço junto de uma corrente de corações",variants:[{id:"v1",color:"Pérola",tone:"Dourado"}],photo:"Fotografia em uso, junto do colar de corações",styles:["Estilo pérola","Delicado"],
+  views:[J("img/colar-perolas-coracoes.jpg",30,45,1.5),M("img/colar-perolas-coracoes.jpg")]},
+ {id:"p12",slug:"colar-corrente-coracoes",ref:"VT-012",cat:"colares",blurb:"Corrente feita de pequenos elos em forma de coração. Fica linda sozinha ou com outros colares.",name:"Colar corrente de corações, tom dourado",img:"img/colar-perolas-coracoes.jpg",alt:"Corrente em tom dourado com elos em forma de coração, usada ao pescoço junto de um colar de pérolas",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso, junto do colar de pérolas",styles:["Coração","Corrente","Delicado"],
+  views:[J("img/colar-perolas-coracoes.jpg",68,25,1.9),M("img/colar-perolas-coracoes.jpg")]},
+ {id:"p22",slug:"colar-pendentes-cruz-concha-coracao",ref:"VT-022",cat:"colares",blurb:"Cruz, concha com brilhos e coração no mesmo colar. Fé, amor e brilho para levares contigo.",name:"Colar com pendentes cruz, concha e coração, tom dourado",img:"img/colar-pendentes-fe.jpg",alt:"Colar de corrente em tom dourado com argola e três pendentes: cruz, concha cravejada e coração",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Colar com três pendentes",styles:["Pendente","Religioso","Coração"],
+  views:[{src:"img/colar-pendentes-fe.jpg",label:"A joia"},D("img/colar-pendentes-fe.jpg",40,75,1.4)]},
+ {id:"p23",slug:"conjunto-gota-fucsia",ref:"VT-023",cat:"conjuntos",blurb:"Pedra em gota fúcsia no colar e nos brincos, com pequenas pedras ao longo da corrente. Uma peça de presença.",name:"Conjunto gota fúcsia, tom prateado",img:"img/conjunto-gota-fucsia.jpg",alt:"Colar em tom prateado com pendente em gota fúcsia e duas pequenas pedras na corrente, com brincos em gota iguais, num expositor creme",variants:[{id:"v1",color:"Fúcsia",tone:"Prateado"}],photo:"Colar e par de brincos",styles:["Com pedras","Gota"],
+  views:[{src:"img/conjunto-gota-fucsia.jpg",label:"A joia"},D("img/conjunto-gota-fucsia.jpg",40,85,1.6)]},
+ {id:"p15",slug:"brincos-trio-brilhos",ref:"VT-015",cat:"brincos",blurb:"Três aros num só brinco: dois cravejados de brilhos e um liso ao centro. Efeito de várias argolas sem precisar de mais furos.",name:"Brincos trio com brilhos, tom dourado",img:"img/brincos-trio-brilhos.jpg",alt:"Brinco em tom dourado com três aros, dois cravejados de pequenas pedras e um liso, usado na orelha",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola","Com pedras"],
+  views:[J("img/brincos-trio-brilhos.jpg",52,68,2.0),M("img/brincos-trio-brilhos.jpg")]},
+ {id:"p21",slug:"argola-cravejada-dourada",ref:"VT-021",cat:"brincos",blurb:"Argola larga com fileiras de brilhos e acabamento trabalhado. Sofisticada de dia e de noite.",name:"Argola cravejada, tom dourado",img:"img/argola-cravejada-dourada.jpg",alt:"Argola larga em tom dourado cravejada de pequenas pedras, usada na orelha por uma modelo de cabelo cacheado",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola","Com pedras"],
+  views:[J("img/argola-cravejada-dourada.jpg",55,70,2.6),M("img/argola-cravejada-dourada.jpg")]},
+ {id:"p19",slug:"argolas-duplas-prateadas",ref:"VT-019",cat:"brincos",blurb:"Argola dupla: uma fileira de brilhos redondos e outra de pedras baguete. Muito brilho num só brinco.",name:"Argolas duplas cravejadas, tom prateado",img:"img/argolas-duplas-prateadas.jpg",alt:"Par de argolas duplas em tom prateado, uma faixa com pequenas pedras redondas e outra com pedras baguete",variants:[{id:"v1",color:"Transparente",tone:"Prateado"}],photo:"Par de brincos",styles:["Argola","Com pedras"],
+  views:[{src:"img/argolas-duplas-prateadas.jpg",label:"A joia"},D("img/argolas-duplas-prateadas.jpg",50,48,1.5)]},
+ {id:"p20",slug:"brincos-halo-redondos",ref:"VT-020",cat:"brincos",blurb:"Pedra redonda transparente com duplo contorno de brilhos. O ponto de luz que combina com tudo.",name:"Brincos halo redondos, tom dourado",img:"img/brincos-halo-redondos.jpg",alt:"Par de brincos redondos em tom dourado com pedra central transparente e duplo contorno de pequenas pedras, seguros entre os dedos",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Par de brincos",styles:["Com pedras","Ponto de luz"],
+  views:[{src:"img/brincos-halo-redondos.jpg",label:"A joia"},D("img/brincos-halo-redondos.jpg",52,52,1.5)]},
+ {id:"p18",slug:"pulseira-medalha-brilhos",ref:"VT-018",cat:"pulseiras",blurb:"Corrente fina com uma medalha redonda cravejada de brilhos. Discreta e elegante.",name:"Pulseira medalha com brilhos, tom dourado",img:"img/pulseiras-coracoes-medalha.jpg",alt:"Pulseira de corrente fina em tom dourado com medalha redonda cravejada de pequenas pedras, sobre uma caixa rosa",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Pulseira, junto do bracelete corações",styles:["Com pedras","Delicado"],
+  views:[J("img/pulseiras-coracoes-medalha.jpg",42,37,2.4),{src:"img/pulseiras-coracoes-medalha.jpg",label:"Outra vista"}]},
+ {id:"p16",slug:"aneis-onda-aviao",ref:"VT-016",cat:"aneis",blurb:"Dois anéis finos: uma onda e um avião. Para quem gosta de mar e de viajar.",name:"Anéis onda e avião, tom prateado",img:"img/aneis-onda-aviao.jpg",alt:"Dois anéis finos em tom prateado, um em forma de onda e outro com um avião, numa caixa de veludo rosa",variants:[{id:"v1",color:null,tone:"Prateado"}],photo:"Anel onda e anel avião",styles:["Delicado","Minimalista"],
+  views:[{src:"img/aneis-onda-aviao.jpg",label:"A joia"},D("img/aneis-onda-aviao.jpg",55,55,1.5)]},
+ {id:"p1",blurb:"Pendente quadrado em rosa suave, rodeado de pequenos brilhos, com brincos a condizer. Delicado no dia a dia e bonito numa ocasião especial.",slug:"conjunto-quadrado-rosa",ref:"VT-001",cat:"conjuntos",name:"Conjunto quadrado rosa, tom dourado",img:"img/conjunto-rosa.jpg",alt:"Colar com pendente quadrado rosa contornado por pequenas pedras transparentes e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Rosa",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
+  views:[{src:"img/conjunto-rosa.jpg",label:"A joia"},D("img/conjunto-rosa.jpg",52,60,1.7),{src:"img/conjunto-rosa-2.jpg",label:"Outra vista"}]},
+ {id:"p10",blurb:"Coração azul intenso com contorno de brilhos, no colar e no brinco. Um toque de cor que não passa despercebido.",slug:"conjunto-coracao-azul",ref:"VT-010",cat:"conjuntos",name:"Conjunto coração azul, tom prateado",img:"img/conjunto-coracao-azul.jpg",alt:"Colar com pendente em coração azul contornado por pequenas pedras e brinco igual, em tom prateado, usados por uma modelo",variants:[{id:"v1",color:"Azul",tone:"Prateado"}],photo:"Colar e brinco, fotografia em uso",styles:["Com pedras","Coração"],
+  views:[J("img/conjunto-coracao-azul.jpg",53,72,2.2),M("img/conjunto-coracao-azul.jpg")]},
+ {id:"p8",blurb:"Gargantilha de contas douradas e contas em tom pérola, com dois trevos: um liso e outro com brilhos.",slug:"colar-choker-trevos",ref:"VT-008",cat:"colares",name:"Colar gargantilha com trevos, tom dourado",img:"img/colar-trevos.jpg",alt:"Colar curto de contas douradas e contas brancas tipo pérola, com dois pendentes em forma de trevo, um liso e outro com pequenas pedras, usado ao pescoço",variants:[{id:"v1",color:"Pérola",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Trevo","Estilo pérola","Gargantilha"],
+  views:[J("img/colar-trevos.jpg",48,45,1.6),M("img/colar-trevos.jpg")]},
+ {id:"p9",blurb:"Duas faixas cravejadas que se cruzam junto à orelha. Brilho discreto, efeito marcante.",slug:"brincos-cruzados-brilhos",ref:"VT-009",cat:"brincos",name:"Brincos cruzados com brilhos, tom dourado",img:"img/brincos-cruzados.jpg",alt:"Brinco em forma de X com duas faixas cravejadas de pequenas pedras, em tom dourado, usado na orelha",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Fotografia em uso",styles:["Com pedras","Cruzado"],
+  views:[J("img/brincos-cruzados.jpg",57,52,2.4),M("img/brincos-cruzados.jpg")]},
+ {id:"p2",blurb:"Pendente quadrado verde rodeado de pequenos brilhos, com brincos a condizer. Uma cor profunda num desenho clássico.",slug:"conjunto-quadrado-verde",ref:"VT-002",cat:"conjuntos",name:"Conjunto quadrado verde, tom dourado",img:"img/conjunto-verde.jpg",alt:"Colar com pendente quadrado verde contornado por pequenas pedras transparentes e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Verde",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
+  views:[{src:"img/conjunto-verde.jpg",label:"A joia"},D("img/conjunto-verde.jpg",60,63,1.7)]},
+ {id:"p3",blurb:"Pendente quadrado vermelho com contorno de brilhos e brincos a condizer. Clássico e cheio de presença.",slug:"conjunto-quadrado-vermelho",ref:"VT-003",cat:"conjuntos",name:"Conjunto quadrado vermelho, tom dourado",img:"img/conjunto-vermelho.jpg",alt:"Colar com pendente quadrado vermelho contornado por pequenas pedras transparentes e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Vermelho",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
+  views:[{src:"img/conjunto-vermelho.jpg",label:"A joia"},D("img/conjunto-vermelho.jpg",60,55,1.7)]},
+ {id:"p7",blurb:"Argolas largas em tom dourado, com volume e linhas suaves. Elevam qualquer visual.",slug:"argolas-douradas",ref:"VT-007",cat:"brincos",name:"Argolas largas, tom dourado",img:"img/argolas-douradas.jpg",alt:"Argolas largas em tom dourado, fotografadas em uso na orelha",variants:[{id:"v1",color:null,tone:"Dourado"}],photo:"Fotografia em uso",styles:["Argola"],
+  views:[J("img/argolas-douradas.jpg",48,50,2.0),M("img/argolas-douradas.jpg")]},
+ {id:"p4",blurb:"Pedra quadrada transparente rodeada de brilhos, no colar e nos brincos, em tom dourado. Combina com tudo.",slug:"conjunto-quadrado-transparente-dourado",ref:"VT-004",cat:"conjuntos",name:"Conjunto quadrado transparente, tom dourado",img:"img/conjunto-dourado-transparente.jpg",alt:"Colar com pendente quadrado transparente e par de brincos iguais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
+  views:[{src:"img/conjunto-dourado-transparente.jpg",label:"A joia"},D("img/conjunto-dourado-transparente.jpg",60,58,1.7)]},
+ {id:"p5",blurb:"A versão em tom prateado do conjunto quadrado transparente. Brilho limpo e elegante.",slug:"conjunto-quadrado-transparente-prateado",ref:"VT-005",cat:"conjuntos",name:"Conjunto quadrado transparente, tom prateado",img:"img/conjunto-prateado-transparente.jpg",alt:"Colar com pendente quadrado transparente e par de brincos iguais, em tom prateado, sobre cetim creme",variants:[{id:"v1",color:"Transparente",tone:"Prateado"}],photo:"Colar e par de brincos",styles:["Com pedras","Quadrado"],
+  views:[{src:"img/conjunto-prateado-transparente.jpg",label:"A joia"},D("img/conjunto-prateado-transparente.jpg",62,63,1.7)]},
+ {id:"p6",blurb:"Pedra oval transparente com contorno de brilhos, no colar e nos brincos. Um clássico que fica sempre bem.",slug:"conjunto-oval-transparente",ref:"VT-006",cat:"conjuntos",name:"Conjunto oval transparente, tom dourado",img:"img/conjunto-oval-transparente.jpg",alt:"Colar com pendente oval transparente contornado por pequenas pedras e par de brincos ovais, em tom dourado, sobre cetim creme",variants:[{id:"v1",color:"Transparente",tone:"Dourado"}],photo:"Colar e par de brincos",styles:["Com pedras","Oval"],
+  views:[{src:"img/conjunto-oval-transparente.jpg",label:"A joia"},D("img/conjunto-oval-transparente.jpg",60,60,1.7)]}
 ];
 const DEFAULT_FEATURED=["p26","p25","p24","p13","p17","p14","p11","p22","p23","p15","p20"];
 
@@ -1289,11 +1245,11 @@ function updateCount(){const n=getCart().reduce((a,l)=>a+l.qty,0);const el=$("#c
 function getSel(){return LS.get("vt_sel",[])}
 function setSel(x){LS.set("vt_sel",x);updateCount()}
 const inSel=id=>getSel().some(x=>x.id===id);
-function syncFav(id){const on=inSel(id);document.querySelectorAll(`[data-act="fav"][data-id="${id}"]`).forEach(b=>{b.setAttribute("aria-pressed",on);if(b.dataset.label)b.querySelector(".lbl-t").textContent=on?"Nos favoritos":b.dataset.label;if(b.classList.contains("fav"))b.setAttribute("aria-label",(on?"Remover dos favoritos: ":"Guardar nos favoritos: ")+b.dataset.name)})}
-function syncCta(id){}
-function toggleSel(id){const x=getSel();const i=x.findIndex(y=>y.id===id);const p=byId(id);if(i>=0){x.splice(i,1);setSel(x);toast("Removida dos favoritos.")}else{x.push({id,qty:1});setSel(x);toast("Guardada nos favoritos.");track("add_to_selection",{ref:p&&p.ref})}syncFav(id);syncCta(id)}
-function favBtn(p){const on=inSel(p.id);return `<button class="fav" data-act="fav" data-id="${p.id}" data-name="${esc(p.name)}" aria-pressed="${on}" aria-label="${on?"Remover dos favoritos: ":"Guardar nos favoritos: "}${esc(p.name)}">${ICON.heart}</button>`}
-function selBtn(p,cls,label){const on=inSel(p.id);label=label||"Guardar nos favoritos";return `<button class="btn ${cls||"btn-soft btn-sm"}" data-act="fav" data-id="${p.id}" data-name="${esc(p.name)}" data-label="${esc(label)}" aria-pressed="${on}">${ICON.heart}<span class="lbl-t">${on?"Nos favoritos":esc(label)}</span></button>`}
+function syncFav(id){const on=inSel(id);document.querySelectorAll(`[data-act="fav"][data-id="${id}"]`).forEach(b=>{b.setAttribute("aria-pressed",on);if(b.dataset.label)b.querySelector(".lbl-t").textContent=on?"Na tua seleção":b.dataset.label;if(b.classList.contains("fav"))b.setAttribute("aria-label",(on?"Remover da seleção: ":"Guardar na seleção: ")+b.dataset.name)})}
+function syncCta(id){document.querySelectorAll(`.hover-cta[data-id="${id}"] span`).forEach(x=>{const p=byId(id);if(p&&!purchasable(p))x.textContent=inSel(id)?"Na tua seleção":"Adicionar à seleção"})}
+function toggleSel(id){const x=getSel();const i=x.findIndex(y=>y.id===id);const p=byId(id);if(i>=0){x.splice(i,1);setSel(x);toast("Removida da tua seleção.")}else{x.push({id,qty:1});setSel(x);toast("Guardada na tua seleção.");track("add_to_selection",{ref:p&&p.ref})}syncFav(id);syncCta(id)}
+function favBtn(p){const on=inSel(p.id);return `<button class="fav" data-act="fav" data-id="${p.id}" data-name="${esc(p.name)}" aria-pressed="${on}" aria-label="${on?"Remover da seleção: ":"Guardar na seleção: "}${esc(p.name)}">${ICON.heart}</button>`}
+function selBtn(p,cls,label){const on=inSel(p.id);label=label||"Guardar na seleção";return `<button class="btn ${cls||"btn-soft btn-sm"}" data-act="fav" data-id="${p.id}" data-name="${esc(p.name)}" data-label="${esc(label)}" aria-pressed="${on}">${ICON.heart}<span class="lbl-t">${on?"Na tua seleção":esc(label)}</span></button>`}
 function viewStyle(v){return v&&v.z?`object-position:${v.fx}% ${v.fy}%;transform:scale(${v.z});transform-origin:${v.fx}% ${v.fy}%`:"object-position:50% 58%"}
 function viewImg(v,p,first,eager){return `<img src="${v.src}" alt="${first?esc(p.alt):""}" width="900" height="1600" loading="${eager?"eager":"lazy"}" decoding="async" style="${viewStyle(v)}">`}
 function selMessage(city){
@@ -1435,19 +1391,19 @@ setInterval(()=>{const el=document.getElementById("tbMsg");if(!el)return;tbI++;e
 function renderChrome(route){
   $("#topbar").className="topbar"+(mode==="demo"?" demo":"");
   $("#topbar").innerHTML=`<div class="wrap">${mode==="demo"?`<span>Modo demonstração · preços, stock e pagamentos de teste · nenhuma cobrança real</span><button class="link" data-act="demo-off">Sair do modo de teste</button>`:`<span class="msg" id="tbMsg">${TB[tbI%TB.length]}</span>`}</div>`;
-  const links=[["inicio","Início"],["loja","Coleções"],...CATS.map(c=>[c.id,c.label]),["sobre","Sobre nós"],["contactos","Contactos"]];
+  const links=[["inicio","Início"],["loja","Coleções"],...CATS.map(c=>[c.id,c.label]),["selecao","Seleção"],["sobre","Sobre nós"],["contactos","Contactos"]];
   $("#nav").innerHTML=`<div class="wrap">${links.map(([h,l])=>`<a href="#${h}"${route===h?' aria-current="page"':""}>${l}</a>`).join("")}</div>`;
   const co=company();const sh=shippingCfg();
   $("#footer").innerHTML=`<div class="wrap dfoot">
     <div class="fbrand"><a href="#inicio" aria-label="Vitrinii, página inicial"><img src="img/logo-vitrinii.png" alt="Vitrinii" width="720" height="323" loading="lazy"></a>
       <p class="fsig">Joias &amp; semijoias brasileiras</p><p class="fquote">“O detalhe que faltava está aqui.”</p></div>
-    <div><h4>Peças</h4><ul><li><a href="#loja">Todas as peças</a></li>${CATS.map(c=>`<li><a href="#${c.id}">${c.label}</a></li>`).join("")}<li><a href="#selecao">Os meus favoritos</a></li></ul></div>
+    <div><h4>Peças</h4><ul><li><a href="#loja">Todas as peças</a></li>${CATS.map(c=>`<li><a href="#${c.id}">${c.label}</a></li>`).join("")}<li><a href="#selecao">A minha seleção</a></li></ul></div>
     <div><h4>Ajuda</h4><ul><li><a href="#envios">Envios e encomendas</a></li><li><a href="#envios">Trocas e devoluções</a></li><li><a href="#cuidados">Cuidados com as semijoias</a></li><li><a href="#sobre">Sobre nós</a></li><li><a href="#contactos">Perguntas frequentes</a></li><li><a href="#encomendas">Acompanhar encomenda</a></li></ul></div>
     <div><h4>Fala connosco</h4><ul><li><a href="https://wa.me/${BRAND.wa}" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp ${BRAND.waDisplay}</a></li><li><a href="${BRAND.ig}" target="_blank" rel="noopener">Instagram ${BRAND.igHandle}</a></li>${co.email?`<li>${esc(co.email)}</li>`:""}<li><a href="#contactos">Contactos</a></li></ul>${sitePay()?`<h4 style="margin-top:1.4rem">Pagamentos</h4>${payTags()}`:""}</div>
   </div>
   <div class="wrap flegal"><span>© ${new Date().getFullYear()} ${esc(BRAND.sign)}${co.legalName?" · "+esc(co.legalName):""}${co.nif?" · NIF "+esc(co.nif):""}</span>
     <nav aria-label="Informação legal"><a href="#termos">Termos e condições</a><a href="#privacidade">Política de privacidade</a><a href="#cookies">Política de cookies</a><a href="#envios">Trocas e devoluções</a><a href="https://www.consumidor.gov.pt" target="_blank" rel="noopener">Resolução alternativa de litígios</a><a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener">Livro de Reclamações</a></nav></div>
-  ${mode==="demo"?`<div class="wrap flegal" style="border-top:0;padding-top:0"><span><button class="link" data-act="demo-off" style="font-weight:500">Sair do modo demonstração</button></span></div>`:""}
+  <div class="wrap flegal" style="border-top:0;padding-top:0"><span><button class="link" data-act="${mode==="demo"?"demo-off":"demo-on"}" style="font-weight:500">${mode==="demo"?"Sair do modo demonstração":"Testar a loja em modo demonstração"}</button> · <a href="#admin">Área administrativa</a></span></div>
   <div class="wrap wm-wrap" aria-hidden="true"><img class="wm" src="img/logo-vitrinii.png" alt="" loading="lazy" width="720" height="323"></div>`;
   updateCount();
 }
@@ -1456,11 +1412,10 @@ function renderChrome(route){
 function productCard(p){
   const v=p.variants[0];const can=purchasable(p);const vs=p.views.slice(0,2);
   return `<article class="card">
-    <div class="card-media"><a class="card-img" href="#p-${p.slug}"><div class="track">${vs.map((x,i)=>`<figure class="slide">${viewImg(x,p,i===0)}<span class="slide-tag">${esc(x.label)}</span></figure>`).join("")}</div>${vs.length>1?'<span class="dots" aria-hidden="true"><i></i><i></i></span>':""}${p.stock===0||p.avail===0?'<span class="badge bad" style="position:absolute;top:.6rem;left:.6rem">Esgotado</span>':""}</a>${favBtn(p)}<button class="quick" data-act="quick" data-id="${p.id}" aria-label="Adicionar ao carrinho: ${esc(p.name)}">${ICON.bag}</button><button class="hover-cta" data-act="quick" data-id="${p.id}" aria-label="Adicionar ao carrinho: ${esc(p.name)}">${ICON.bag}<span>${orderable(p)?"Adicionar ao carrinho":"Ver peça"}</span></button></div>
+    <div class="card-media"><a class="card-img" href="#p-${p.slug}"><div class="track">${vs.map((x,i)=>`<figure class="slide">${viewImg(x,p,i===0)}<span class="slide-tag">${esc(x.label)}</span></figure>`).join("")}</div>${vs.length>1?'<span class="dots" aria-hidden="true"><i></i><i></i></span>':""}${p.stock===0||p.avail===0?'<span class="badge bad" style="position:absolute;top:.6rem;left:.6rem">Esgotado</span>':""}</a>${favBtn(p)}<button class="quick" data-act="quick" data-id="${p.id}" aria-label="${can?"Adicionar ao carrinho":"Adicionar à seleção"}: ${esc(p.name)}">${ICON.bag}</button><button class="hover-cta" data-act="quick" data-id="${p.id}" aria-label="Adicionar à seleção: ${esc(p.name)}">${ICON.bag}<span>${can?"Adicionar ao carrinho":inSel(p.id)?"Na tua seleção":"Adicionar à seleção"}</span></button></div>
     <div style="display:grid;gap:.45rem"><div class="card-ref">${({brincos:"Brinco",colares:"Colar",pulseiras:"Pulseira",aneis:"Anel",conjuntos:"Conjunto"})[p.cat]}</div><h3><a href="#p-${p.slug}">${esc(p.name)}</a></h3>
     ${priceHtml(p)}
     ${v.color?`<div class="swatches" title="${esc(variantLabel(v))}"><span class="swatch" style="background:${COLOR_HEX[v.color]}"></span></div>`:""}</div>
-    <button class="card-buy" data-act="quick" data-id="${p.id}" aria-label="Adicionar ao carrinho: ${esc(p.name)}">${ICON.bag}<span>${orderable(p)?"Adicionar":"Ver peça"}</span></button>
   </article>`;
 }
 
@@ -1477,14 +1432,14 @@ function showcaseInner(i){
 
 /* ============ HERO: carrossel com vídeo e imagem ============ */
 const HERO=[
- {media:"hero/hero-1.mp4",poster:"hero/hero-1.webp",side:"l",fx:55,eb:"Peças com presença",h:"Brilha sem pedir licença.",sub:"Dourado com volume, para quem gosta de ser vista.",cta:"Ver coleção",href:"#loja"},
- {media:"hero/hero-2.mp4",poster:"hero/hero-2.webp",side:"r",fx:42,eb:"Delicadas",h:"O detalhe que faltava está aqui.",sub:"Corações, pérolas e anéis finos para usar todos os dias.",cta:"Ver anéis",href:"#aneis"},
- {img:"hero/hero-3.webp",side:"l",fx:52,eb:"Para oferecer",h:"A prenda que ela vai usar sempre.",sub:"Joias para oferecer neste Natal, ou para te ofereceres.",cta:"Ver conjuntos",href:"#conjuntos"},
- {img:"hero/hero-4.webp",side:"l",fx:52,eb:"Sobrepõe e combina",h:"Mistura, sobrepõe, sorri.",sub:"Colares e pulseiras para combinar ao teu jeito.",cta:"Ver colares",href:"#colares"},
- {img:"hero/hero-5.webp",side:"r",fx:42,eb:"Tom rosé",h:"Feita para te destacar.",sub:"Peças com volume e textura, em tom rosé.",cta:"Explorar a coleção",href:"#loja"},
- {img:"hero/hero-6.webp",side:"r",fx:44,eb:"Novidades",h:"Acabadas de chegar.",sub:"As peças novas da Vitrinii aparecem primeiro aqui.",cta:"Ver novidades",href:"#loja"},
- {img:"hero/hero-7.webp",side:"l",fx:50,eb:"Pérolas",h:"Clássicas que nunca saem de moda.",sub:"Colares com pérolas para elevar qualquer visual.",cta:"Ver colares",href:"#colares"},
- {img:"hero/hero-8.webp",side:"l",fx:52,eb:"Pontos de luz",h:"Pequenos brilhos, grande efeito.",sub:"Brincos e colares delicados com pedras.",cta:"Ver brincos",href:"#brincos"}
+ {media:"hero/hero-1.mp4",poster:"hero/hero-1.jpg",side:"l",fx:55,eb:"Peças com presença",h:"Brilha sem pedir licença.",sub:"Dourado com volume, para quem gosta de ser vista.",cta:"Ver coleção",href:"#loja"},
+ {media:"hero/hero-2.mp4",poster:"hero/hero-2.jpg",side:"r",fx:42,eb:"Delicadas",h:"O detalhe que faltava está aqui.",sub:"Corações, pérolas e anéis finos para usar todos os dias.",cta:"Ver anéis",href:"#aneis"},
+ {img:"hero/hero-3.jpg",side:"l",fx:52,eb:"Para oferecer",h:"A prenda que ela vai usar sempre.",sub:"Joias para oferecer neste Natal, ou para te ofereceres.",cta:"Ver conjuntos",href:"#conjuntos"},
+ {img:"hero/hero-4.jpg",side:"l",fx:52,eb:"Sobrepõe e combina",h:"Mistura, sobrepõe, sorri.",sub:"Colares e pulseiras para combinar ao teu jeito.",cta:"Ver colares",href:"#colares"},
+ {img:"hero/hero-5.jpg",side:"r",fx:42,eb:"Tom rosé",h:"Feita para te destacar.",sub:"Peças com volume e textura, em tom rosé.",cta:"Explorar a coleção",href:"#loja"},
+ {img:"hero/hero-6.jpg",side:"r",fx:44,eb:"Novidades",h:"Acabadas de chegar.",sub:"As peças novas da Vitrinii aparecem primeiro aqui.",cta:"Ver novidades",href:"#loja"},
+ {img:"hero/hero-7.jpg",side:"l",fx:50,eb:"Pérolas",h:"Clássicas que nunca saem de moda.",sub:"Colares com pérolas para elevar qualquer visual.",cta:"Ver colares",href:"#colares"},
+ {img:"hero/hero-8.jpg",side:"l",fx:52,eb:"Pontos de luz",h:"Pequenos brilhos, grande efeito.",sub:"Brincos e colares delicados com pedras.",cta:"Ver brincos",href:"#brincos"}
 ];
 function heroSlide(h,k,clone){
   const media=h.media?`<video muted loop playsinline preload="${k===0&&!clone?"auto":"none"}" poster="${h.poster}" style="object-position:${h.fx}% 50%"><source src="${h.media}" type="video/mp4"></video>`
@@ -1492,7 +1447,8 @@ function heroSlide(h,k,clone){
   return `<div class="hs-slide side-${h.side}" ${clone?'aria-hidden="true"':`role="group" aria-roledescription="destaque" aria-label="${k+1} de ${HERO.length}"`} data-k="${k}">
     <div class="hs-media">${media}</div>
     <div class="hs-copy"><p class="eyebrow">${esc(h.eb)}</p><h2>${esc(h.h)}</h2><p class="hs-sub">${esc(h.sub)}</p>
-      <a class="btn btn-primary" href="${h.href}"${clone?' tabindex="-1"':""}>${esc(h.cta)}</a></div>
+      <a class="btn btn-primary" href="${h.href}"${clone?' tabindex="-1"':""}>${esc(h.cta)}</a>
+      <ul class="hs-facts"><li>${ICON.truck}<span>Entrega em 2 a 3 dias em Portugal continental</span></li><li>${ICON.globe}<span>Entregamos para toda a Europa</span></li></ul></div>
   </div>`;
 }
 function heroSlidesHtml(){return heroSlide(HERO[HERO.length-1],HERO.length-1,true)+HERO.map((h,k)=>heroSlide(h,k,false)).join("")+heroSlide(HERO[0],0,true)}
@@ -1547,7 +1503,7 @@ function pageHome(){
   const hero=cat.find(p=>p.id==="p1");
   const count=c=>cat.filter(p=>p.cat===c).length;
   const sh=shippingCfg();
-  const catImg={brincos:["img/brincos-coracao-cristal.webp","50% 55%"],colares:["img/colar-perolas-coracoes.webp","40% 40%"],pulseiras:["img/bracelete-coracoes.webp","50% 55%"],aneis:["img/aneis-onda-aviao.webp","50% 55%"],conjuntos:["img/conjunto-gota-brilhos.webp","45% 60%"]};
+  const catImg={brincos:["img/brincos-coracao-cristal.jpg","50% 55%"],colares:["img/colar-perolas-coracoes.jpg","40% 40%"],pulseiras:["img/bracelete-coracoes.jpg","50% 55%"],aneis:["img/aneis-onda-aviao.jpg","50% 55%"],conjuntos:["img/conjunto-gota-brilhos.jpg","45% 60%"]};
   const ig=["p13","p21","p17","p14","p11","p23","p15","p22"].map(id=>cat.find(p=>p.id===id)).filter(Boolean);
   const set=cat.find(p=>p.id==="p23");
   dsI=0;dsV=0;
@@ -1570,7 +1526,7 @@ function pageHome(){
       let gi=0;const one=(c,dup)=>{const ix=gi++;const n=count(c.id);const im=catImg[c.id];const p=cat.find(x=>x.id===pic[c.id]);const can=p&&purchasable(p);
         const card=n&&im?`<a class="dcat" href="#${c.id}"${dup?' tabindex="-1"':""}><img src="${im[0]}" alt="" loading="lazy" style="object-position:${im[1]}"><span class="t"><h3>${c.label}</h3><span class="tab">${n} ${n===1?"peça":"peças"}</span></span></a>`
           :`<a class="dcat empty" href="#${c.id}"${dup?' tabindex="-1"':""}><span class="mk"><img src="img/simbolo-vitrinii.png" alt=""></span><span class="t"><h3>${c.label}</h3><span>${n?n+(n===1?" peça":" peças"):"Em breve"}</span></span></a>`;
-        const cta=p?`<button class="hover-cta" data-act="quick" data-id="${p.id}"${dup?' tabindex="-1"':""} aria-label="Adicionar ao carrinho: ${esc(p.name)}">${ICON.bag}<span>Adicionar ao carrinho</span></button>`:"";
+        const cta=p?`<button class="hover-cta" data-act="quick" data-id="${p.id}"${dup?' tabindex="-1"':""} aria-label="Adicionar à seleção: ${esc(p.name)}">${ICON.bag}<span>${can?"Adicionar ao carrinho":inSel(p.id)?"Na tua seleção":"Adicionar à seleção"}</span></button>`:"";
         return `<div class="dcat-w" data-i="${ix}" data-c="${esc(c.label)}"${dup?' aria-hidden="true"':""}>${card}${cta}</div>`};
       return [0,1,2,3,4].map(k=>CATS.map(c=>one(c,k!==2)).join("")).join("");
     })()}</div></div>
@@ -1580,39 +1536,50 @@ function pageHome(){
     </div>
   </div></section>
 
+  <section class="section alt"><div class="wrap">
+    <div class="center-head"><img class="orn" src="img/simbolo-vitrinii.png" alt="" aria-hidden="true" width="240" height="224"><p class="eyebrow">Escolhe uma peça</p><h2>Peças em <em>destaque</em></h2></div>
+    <div id="dsBox">${dsInner()}</div>
+  </div></section>
+
   <section class="section"><div class="wrap">
     <div class="section-head"><div><p class="eyebrow">Acabadas de chegar</p><h2 style="margin-top:.5rem">Novidades</h2></div><a class="btn btn-ghost btn-sm" href="#loja">Ver todas</a></div>
     <div class="grid">${feat.map(productCard).join("")}</div>
   </div></section>
 
+  <section class="feature alt"><div class="wrap fsplit">
+    <div class="ph">${viewImg(set.views[0],set,true)}</div>
+    <div><p class="eyebrow">Conjuntos</p><h2>Peças que ficam ainda mais bonitas <em>juntas.</em></h2>
+      <p>Colar e brincos a condizer, prontos a usar juntos. Uma prenda certa para o Natal, um aniversário ou só para ti.</p>
+      <a class="btn btn-primary" href="#conjuntos">Ver conjuntos</a></div>
+  </div></section>
+
   <section class="section"><div class="wrap fsplit rev">
-    <figure class="yara"><div class="ph"><video data-src="video/yara-vitrinii.mp4" poster="img/yara-poster.webp" muted loop playsinline preload="none" data-lazyvideo aria-label="Yara Lauer, da Vitrinii, a mostrar brincos e colares dourados"></video></div><figcaption>Yara Lauer · Vitrinii</figcaption></figure>
+    <figure class="yara"><div class="ph"><video src="video/yara-vitrinii.mp4" poster="img/yara-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Yara Lauer, da Vitrinii, a mostrar brincos e colares dourados"></video></div><figcaption>Yara Lauer · Vitrinii</figcaption></figure>
     <div><p class="eyebrow">Sobre nós</p><h2>A tua <em>vitrine online.</em></h2>
       <p>A Vitrinii by Yara Lauer traz joias e semijoias brasileiras para Portugal, com envios para todo o país.</p>
       <p>Escolhes a tua peça aqui, tiras dúvidas diretamente pelo WhatsApp e acompanhas a encomenda até chegar a casa.</p>
       <a class="btn btn-ghost" href="#sobre">Conhecer a Vitrinii</a></div>
   </div></section>
-  <section class="feature alt"><div class="wrap fsplit">
-    <div class="ph">${viewImg(set.views[0],set,true)}</div>
-    <div><p class="eyebrow">Conjuntos</p><h2>Peças que ficam ainda mais bonitas <em>juntas.</em></h2>
-      <p>Colar e brincos a condizer, prontos a usar juntos. Uma prenda certa para o Natal, um aniversário ou só para ti.</p>
-      <a class="btn btn-ghost" href="#conjuntos">Ver conjuntos</a></div>
-  </div></section>
 
+  <section class="section alt"><div class="wrap">
+    <div class="center-head"><img class="orn" src="img/simbolo-vitrinii.png" alt="" aria-hidden="true" width="240" height="224"><p class="eyebrow">${BRAND.igHandle}</p><h2>Inspira-te com a <em>Vitrinii</em></h2></div>
+    <div class="igrid">${ig.map(p=>{const v=p.views.find(x=>x.label==="Na modelo")||p.views[0];return `<a href="#p-${p.slug}" aria-label="${esc(p.name)}">${viewImg(v,p,false)}</a>`}).join("")}</div>
+    <div style="text-align:center;margin-top:2rem"><a class="btn btn-ghost" href="${BRAND.ig}" target="_blank" rel="noopener">Seguir no Instagram</a></div>
+  </div></section>
 
   <section class="section"><div class="wrap">
     <div class="center-head"><img class="orn" src="img/simbolo-vitrinii.png" alt="" aria-hidden="true" width="240" height="224"><p class="eyebrow">Como encomendar</p><h2>Escolhe, envia, <em>nós tratamos do resto.</em></h2></div>
     <ol class="how">
-      <li><span class="n">1</span><b>Escolhe</b><p>Junta ao carrinho as peças de que gostas.</p></li>
-      <li><span class="n">2</span><b>Envia</b><p>O teu carrinho segue numa só mensagem pelo WhatsApp, já com preços e portes.</p></li>
-      <li><span class="n">3</span><b>Recebe</b><p>A Vitrinii confirma contigo a disponibilidade e o pagamento, e envia para todo o país.</p></li>
+      <li><span class="n">1</span><b>Escolhe</b><p>Junta à tua seleção as peças de que gostas.</p></li>
+      <li><span class="n">2</span><b>Envia</b><p>A tua seleção segue numa só mensagem pelo WhatsApp.</p></li>
+      <li><span class="n">3</span><b>Recebe</b><p>A Vitrinii confirma contigo preço, disponibilidade e portes, e envia para todo o país.</p></li>
     </ol>
     <div class="contact-cards">
       <a href="https://wa.me/${BRAND.wa}" target="_blank" rel="noopener" data-track="whatsapp_click"><small>WhatsApp</small><b>${BRAND.waDisplay}</b></a>
       <a href="${BRAND.ig}" target="_blank" rel="noopener"><small>Instagram</small><b>${BRAND.igHandle}</b></a>
-      <a href="#carrinho"><small>O teu carrinho</small><b>Ver e enviar</b></a>
+      <a href="#selecao"><small>A tua seleção</small><b>Ver e enviar</b></a>
     </div>
-    <div style="text-align:center;margin-top:2rem"><a class="btn btn-wa" href="${waLink("Olá, Vitrinii! Preciso de ajuda a escolher uma peça.")}" target="_blank" rel="noopener" data-track="whatsapp_click">${ICON.wa} Falar pelo WhatsApp</a></div>
+    <div style="text-align:center;margin-top:2rem"><a class="btn btn-primary" href="${waLink("Olá, Vitrinii! Preciso de ajuda a escolher uma peça.")}" target="_blank" rel="noopener" data-track="whatsapp_click">${ICON.wa} Falar pelo WhatsApp</a></div>
   </div></section>`;
 }
 
@@ -1621,7 +1588,7 @@ function pageShop(catId){
   const c=CATS.find(x=>x.id===catId);
   const title=c?c.label:"Loja";
   return `<div class="wrap page-head"><nav class="crumbs" aria-label="Caminho"><a href="#inicio">Início</a><span>/</span>${c?`<a href="#loja">Loja</a><span>/</span><span>${c.label}</span>`:"<span>Loja</span>"}</nav>
-    <h1>${c?esc(c.label):"Coleções"}</h1><p>${c?"Peças da categoria "+esc(c.label.toLowerCase())+". Toca no coração para guardar as tuas preferidas.":"Todas as peças da Vitrinii num só lugar. Filtra por categoria, cor ou estilo e guarda as tuas preferidas."}</p></div>
+    <h1>${c?esc(c.label):"Coleções"}</h1><p>${c?"Peças da categoria "+esc(c.label.toLowerCase())+". Guarda as tuas preferidas na seleção.":"Todas as peças da Vitrinii num só lugar. Filtra por categoria, cor ou estilo e guarda as tuas preferidas."}</p></div>
   <nav class="wrap ctabs" aria-label="Categorias"><a href="#loja"${!c?' aria-current="page"':""}>Todas</a>${CATS.map(x=>`<a href="#${x.id}"${c&&c.id===x.id?' aria-current="page"':""}>${x.label}</a>`).join("")}</nav>
   <div class="wrap shop">
     <aside aria-label="Filtros">${filtersHtml(catId)}</aside>
@@ -1701,16 +1668,16 @@ function pieceBlock(p,v,qty,n){
 }
 function orderText(p,qty){
   const sh=shippingCfg();const ship=sh.continente.price;const ask=p.price==null;
-  return `🛒 *Site Vitrinii* · ${ask?"Pedido de preço":"Pergunta sobre uma peça"}
+  return `🛒 *Site Vitrinii* · ${ask?"Pedido de informação":"Pedido de encomenda"}
 
-Olá, Vitrinii! ${ask?"Gostava de saber o *preço* e a *disponibilidade* desta peça:":"Vi esta peça no site e tenho uma pergunta:"}
+Olá, Vitrinii! ${ask?"Gostava de saber o *preço* e a *disponibilidade* desta peça:":"Vi esta peça no site e quero encomendar:"}
 
 ${pieceBlock(p,p.variants[0],qty)}
 ${!ask?`
 🚚 Portes: ${ship!=null?eur(ship):"a confirmar"} para Portugal continental (entrega em ${sh.continente.days||"2 a 3 dias"})${ship!=null?`
 🧾 Total com portes: *${eur(p.price*qty+ship)}*`:""}
 `:""}
-${ask?"Se estiver disponível, gostava de encomendar.":"(escreve aqui a tua pergunta)"}
+${ask?"Se estiver disponível, gostava de encomendar.":"Podes confirmar a disponibilidade e dizer-me como faço o pagamento?"}
 
 Obrigada! 😊`;
 }
@@ -1727,9 +1694,9 @@ function pageProduct(slug){
   LS.set("vt_recent",[p.id,...rec].slice(0,8));
   const v0=p.variants[0];const maxQ=p.avail!=null?Math.max(1,p.avail):20;
   const url=SITE_URL?SITE_URL+"#p-"+p.slug:"";const shareTxt=`Olha esta peça da Vitrinii: ${p.name} (ref. ${p.ref})${url?" "+url:""}`;
-  const avail=p.stock==null&&purchasable(p)?`<div class="avail"><i></i>Disponível</div>`:p.stock==null?"":p.avail>0?`<div class="avail"><i></i>Disponível</div>`:`<div class="avail out"><i></i>Esgotado</div>`;
+  const avail=p.stock==null&&purchasable(p)?`<div class="avail"><i></i>Disponível</div>`:p.stock==null?`<div class="avail unk"><i></i>Disponibilidade a confirmar</div>`:p.avail>0?`<div class="avail"><i></i>Disponível</div>`:`<div class="avail out"><i></i>Esgotado</div>`;
   const ld=(p.price!=null&&(mode==="demo"?false:p.status==="publicado"))?`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"Product",name:p.name,sku:p.ref,image:p.img,brand:{"@type":"Brand",name:"Vitrinii"},offers:{"@type":"Offer",priceCurrency:"EUR",price:(p.price/100).toFixed(2),availability:p.avail>0?"https://schema.org/InStock":"https://schema.org/OutOfStock"}})}<\/script>`:"";
-  const waOrder=`<a class="ask-wa" href="${waLink(orderText(p,1))}" target="_blank" rel="noopener" data-act="order-wa" data-id="${p.id}">${ICON.wa} ${p.price==null?"Pedir preço no WhatsApp":"Perguntar no WhatsApp"}</a>`;
+  const waOrder=`<a class="btn btn-sq btn-outline" href="${waLink(orderText(p,1))}" target="_blank" rel="noopener" data-act="order-wa" data-id="${p.id}">${ICON.wa} Encomendar já</a>`;
   const okp=orderable(p);
   const asked=restockList().some(r=>r.pid===p.id&&r.mine);
   const addBtn=okp?`<button class="btn btn-sq btn-primary" data-act="add-pdp" data-id="${p.id}">${ICON.bag} Adicionar ao carrinho</button>`
@@ -1743,8 +1710,7 @@ function pageProduct(slug){
   return `${ld}<div class="wrap pdp-top"><nav class="crumbs" aria-label="Caminho"><a href="#inicio">Início</a><span>/</span><a href="#${c.id}">${c.label}</a><span>/</span><span style="color:var(--ink)">${esc(p.name)}</span></nav></div>
   <div class="wrap pdp">
     <div class="gallery">
-      ${p.views.length>1?`<div class="mgal" id="mgal" aria-label="Fotografias da peça"><div class="mgal-track">${p.views.map((v,i)=>`<figure class="mgal-s">${viewImg(v,p,i===0,i===0)}<span class="badge">${esc(v.label)}</span></figure>`).join("")}</div><div class="mgal-dots" aria-hidden="true">${p.views.map((v,i)=>`<i${i===0?' class="on"':""}></i>`).join("")}</div></div>`:""}
-      <div class="zoom${p.views.length>1?" has-mgal":""}" id="zoom" role="button" tabindex="0" aria-label="Ampliar fotografia"><img id="pdpImg" src="${p.views[0].src}" alt="${esc(p.alt)}" width="900" height="1600" style="${viewStyle(p.views[0])}" data-base="${viewStyle(p.views[0])}"><span class="badge zoom-hint">${ICON.zoom} Toca para ampliar</span></div>
+      <div class="zoom" id="zoom" role="button" tabindex="0" aria-label="Ampliar fotografia"><img id="pdpImg" src="${p.views[0].src}" alt="${esc(p.alt)}" width="900" height="1600" style="${viewStyle(p.views[0])}" data-base="${viewStyle(p.views[0])}"><span class="badge zoom-hint">${ICON.zoom} Toca para ampliar</span></div>
       ${p.views.length>1?`<div class="thumbs" role="group" aria-label="Fotografias da peça">${p.views.map((v,i)=>`<button class="thumb" data-act="view" data-i="${i}" aria-pressed="${i===0}"><span class="ti">${viewImg(v,p,false)}</span><span>${esc(v.label)}</span></button>`).join("")}</div>`:""}
       <p class="photo-cap" id="photoCap">${esc(p.views[0].label)} · ${esc(variantLabel(v0))}</p>
     </div>
@@ -1760,11 +1726,12 @@ function pageProduct(slug){
         ${addBtn}
         <div class="buy-row2">
           <div class="qty-sq"><button type="button" data-act="qty-" aria-label="Diminuir quantidade">−</button><label class="sr" for="qty">Quantidade</label><input id="qty" type="number" min="1" max="${maxQ}" value="1" inputmode="numeric"><button type="button" data-act="qty+" aria-label="Aumentar quantidade">+</button></div>
-          <button class="heart-sq" data-act="fav" data-id="${p.id}" data-name="${esc(p.name)}" aria-pressed="${inSel(p.id)}" aria-label="${inSel(p.id)?"Remover dos favoritos":"Guardar nos favoritos"}: ${esc(p.name)}">${ICON.heart}</button>
+          ${waOrder}
+          <button class="heart-sq" data-act="fav" data-id="${p.id}" data-name="${esc(p.name)}" aria-pressed="${inSel(p.id)}" aria-label="${inSel(p.id)?"Remover da seleção":"Guardar na seleção"}: ${esc(p.name)}">${ICON.heart}</button>
         </div>
-        ${waOrder}
       </div>
       ${p.price==null?`<p class="price-note">(O preço desta peça é confirmado diretamente pelo WhatsApp, ao finalizares a encomenda.)</p>`:""}
+      <div class="share2"><span>Partilhar:</span><a href="https://wa.me/?text=${encodeURIComponent(shareTxt)}" target="_blank" rel="noopener">WhatsApp</a>${url?`<a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener">Facebook</a><a href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(p.name)}" target="_blank" rel="noopener">Pinterest</a>`:""}<button data-act="copy-share" data-text="${esc(shareTxt)}">${url?"Copiar ligação":"Copiar"}</button></div>
       <ul class="perks">
         <li>${ICON.gem}<span>${p.finish?esc((p.type||"Semijoia")+" · "+p.finish):"Semijoia folheada · ouro 18k, ródio branco e prata 925"}</span></li>
         <li>${ICON.truck}<span>${sh.continente.days||"2 a 3 dias"} em Portugal continental</span></li>
@@ -1786,7 +1753,6 @@ function pageProduct(slug){
         <li>Trocas: ${(company().returnsText||"").trim()?esc(company().returnsText.trim()):"se houver algum problema com a tua peça, fala connosco pelo WhatsApp assim que receberes a encomenda."}</li></ul>
         <p class="acc-more"><a href="#envios">Entregas e encomendas</a> · <a href="#envios">Trocas e devoluções</a></p></details>
       </div>
-      <div class="share2"><span>Partilhar:</span><a href="https://wa.me/?text=${encodeURIComponent(shareTxt)}" target="_blank" rel="noopener">WhatsApp</a>${url?`<a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener">Facebook</a><a href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(p.name)}" target="_blank" rel="noopener">Pinterest</a>`:""}<button data-act="copy-share" data-text="${esc(shareTxt)}">${url?"Copiar ligação":"Copiar"}</button></div>
     </div>
   </div>
   ${related.length?`<section class="section band" style="background:var(--blush-2)"><div class="wrap"><div class="section-head"><h2>Também vais <em>gostar</em></h2></div><div class="grid">${related.map(productCard).join("")}</div></div></section>`:""}
@@ -1820,7 +1786,7 @@ function emptyCart(){return `<div class="empty-state"><h3>O teu carrinho está v
 function pageCart(){
   const c=normalizeCart();
   const mine=LS.get(key("my_orders"),[]).map(r=>Server.get(r)).filter(Boolean);
-  return `<div class="wrap page-head"><h1>Carrinho</h1>${c.lines.length&&!sitePay()?coSteps(1):""}</div>
+  return `<div class="wrap page-head"><h1>Carrinho</h1></div>
   <div class="wrap two">
     <div>${c.notes.map(n=>`<div class="callout warn" style="margin-bottom:1rem">${esc(n)}</div>`).join("")}
       ${c.lines.length?`<div class="lines">${c.lines.map(l=>lineHtml(l,true)).join("")}</div>`:emptyCart()}
@@ -1870,13 +1836,12 @@ function waValid(){const e={};if(wa.name.trim().length<2)e.name="Indica o teu no
 function waField(id,label,opts){opts=opts||{};const err=wa.errors[id];
   const inp=opts.textarea?`<textarea id="w_${id}" class="input" data-wa="${id}" rows="3" placeholder="${opts.ph||""}">${esc(wa[id])}</textarea>`:`<input id="w_${id}" class="input" data-wa="${id}" value="${esc(wa[id])}" ${opts.attrs||""}${err?' aria-invalid="true"':""}>`;
   return `<div class="field${err?" invalid":""}"><label for="w_${id}">${label}${opts.optional?' <span style="font-weight:400;color:var(--muted)">(opcional)</span>':""}</label>${inp}${opts.hint?`<span class="hint">${opts.hint}</span>`:""}${err?`<span class="err" role="alert">${esc(err)}</span>`:""}</div>`}
-function coSteps(n){return `<ol class="co-steps" aria-label="Etapas da encomenda">${["Carrinho","Os teus dados","Enviar no WhatsApp"].map((t,i)=>`<li class="${i+1<n?"done":i+1===n?"on":""}"${i+1===n?' aria-current="step"':""}><span>${i+1<n?"✓":i+1}</span>${t}</li>`).join("")}</ol>`}
 function pageWaCheckout(){
   const c=normalizeCart();
   if(!c.lines.length&&!wa.sent)return `<div class="wrap page-head"><h1>Finalizar <em>encomenda</em></h1></div><div class="wrap" style="padding-bottom:5rem">${emptyCart()}</div>`;
   track("begin_checkout",{items:c.count});
   const msg=waMessage(c);const ship=waShip();
-  return `<div class="wrap page-head"><nav class="crumbs"><a href="#carrinho">Carrinho</a><span>/</span><span>Encomendar pelo WhatsApp</span></nav><h1>Encomendar pelo <em>WhatsApp</em></h1>${coSteps(wa.sent?3:2)}<p>${sitePay()?'Preferes falar connosco? Envia a encomenda numa só mensagem. Também podes <a class="link" href="#finalizar">finalizar e pagar aqui no site</a>.':"Revê a tua encomenda, preenche os teus dados e envia tudo numa só mensagem. A Vitrinii confirma contigo a disponibilidade, os portes e o pagamento."}</p></div>
+  return `<div class="wrap page-head"><nav class="crumbs"><a href="#carrinho">Carrinho</a><span>/</span><span>Encomendar pelo WhatsApp</span></nav><h1>Encomendar pelo <em>WhatsApp</em></h1><p>${sitePay()?'Preferes falar connosco? Envia a encomenda numa só mensagem. Também podes <a class="link" href="#finalizar">finalizar e pagar aqui no site</a>.':"Revê a tua encomenda, preenche os teus dados e envia tudo numa só mensagem. A Vitrinii confirma contigo a disponibilidade, os portes e o pagamento."}</p></div>
   <div class="wrap two">
     <div style="display:grid;gap:1.6rem">
       ${wa.sent?`<div class="callout ok"><b>A mensagem abriu no WhatsApp</b><span>Para concluir, toca em Enviar na conversa com a Vitrinii. Se o WhatsApp não abriu, copia a mensagem e envia para ${BRAND.waDisplay}.</span><div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn btn-primary btn-sm" data-act="wa-done">Já enviei, esvaziar carrinho</button><button class="btn btn-ghost btn-sm" data-act="copy-wa">Copiar mensagem</button></div></div>`:""}
@@ -1884,8 +1849,8 @@ function pageWaCheckout(){
         <div class="lines">${c.lines.map(l=>lineHtml(l,true)).join("")}</div>
         <p style="margin-top:1rem"><a class="link" href="#loja">+ Adicionar mais peças</a></p></section>
       <form class="panel form" data-form="wa" novalidate><h2 style="font-size:1.5rem">Os teus dados</h2>
-        <div class="cols">${waField("name","Nome",{attrs:'autocomplete="name"'})}<div class="field"><label for="w_zone">Zona de entrega</label><select id="w_zone" class="input" data-wa="zone">${Object.entries(WZ).map(([k,v])=>`<option value="${k}"${wa.zone===k?" selected":""}>${v}</option>`).join("")}</select></div></div>
-        ${waField("city","Localidade",{attrs:'autocomplete="address-level2"'})}
+        <div class="cols">${waField("name","Nome",{attrs:'autocomplete="name"'})}${waField("phone","Telemóvel",{optional:true,attrs:'type="tel" inputmode="tel" autocomplete="tel"'})}</div>
+        <div class="cols"><div class="field"><label for="w_zone">Zona de entrega</label><select id="w_zone" class="input" data-wa="zone">${Object.entries(WZ).map(([k,v])=>`<option value="${k}"${wa.zone===k?" selected":""}>${v}</option>`).join("")}</select></div>${waField("city","Localidade",{attrs:'autocomplete="address-level2"'})}</div>
         <label class="chk" style="display:flex;gap:.6rem;align-items:center;font-size:.92rem"><input type="checkbox" data-wa="gift"${wa.gift?" checked":""}> É para oferecer a alguém</label>
         ${waField("notes","Observações",{optional:true,textarea:true,ph:"Ex.: tamanho do anel, dia preferido para a entrega, uma dedicatória"})}
         <p class="hint" style="font-size:.8rem;color:var(--muted)">A morada completa e o NIF são combinados depois, diretamente na conversa.</p>
@@ -2114,7 +2079,7 @@ function pageAbout(){
     <p>Brincos, conjuntos de colar e brincos, e novidades publicadas primeiro no Instagram ${BRAND.igHandle}.</p>
     <h2>A história da marca</h2><p>${F("Texto a fornecer pela Vitrinii: a história de Yara Lauer e a seleção das peças")}</p>
     <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem"><a class="btn btn-primary" href="#loja">Ver a coleção</a><a class="btn btn-ghost" href="${BRAND.ig}" target="_blank" rel="noopener">Seguir no Instagram</a></div></div>
-    <figure class="yara"><div class="ph"><video src="video/yara-vitrinii.mp4" poster="img/yara-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Yara Lauer, da Vitrinii, a mostrar brincos e colares dourados"></video></div><figcaption>Yara Lauer · Vitrinii</figcaption></figure>
+    <figure class="yara"><div class="ph"><video src="video/yara-vitrinii.mp4" poster="img/yara-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Yara Lauer, da Vitrinii, a mostrar brincos e colares dourados"></video></div><figcaption>Yara Lauer · Vitrinii</figcaption></figure>
   </div>`;
 }
 function pageContacts(){
@@ -2158,7 +2123,7 @@ function pagePrivacy(){
   const mail=c.email?esc(c.email):F3("e-mail de contacto");
   return `<div class="wrap page-head"><p class="eyebrow">Vitrinii by Yara Lauer</p><h1 style="margin-top:.5rem">Política de <em>privacidade</em></h1><p class="upd">Última atualização: 27 de outubro de 2026</p></div>
   <div class="wrap prose policy">
-    <p>A Vitrinii respeita a tua privacidade. Esta política explica que dados pessoais recolhemos quando visitas a loja, guardas peças nos favoritos, falas connosco ou fazes uma encomenda, para que os usamos e quais são os teus direitos, nos termos do Regulamento Geral sobre a Proteção de Dados (RGPD) e da legislação portuguesa aplicável.</p>
+    <p>A Vitrinii respeita a tua privacidade. Esta política explica que dados pessoais recolhemos quando visitas a loja, guardas peças na tua seleção, falas connosco ou fazes uma encomenda, para que os usamos e quais são os teus direitos, nos termos do Regulamento Geral sobre a Proteção de Dados (RGPD) e da legislação portuguesa aplicável.</p>
     <h2>1. Responsável pelo tratamento</h2>
     <p>O responsável pelo tratamento dos teus dados é ${resp}, que opera a marca Vitrinii by Yara Lauer.</p>
     <p>Para qualquer questão sobre privacidade, contacta-nos por e-mail (${mail}) ou pelo WhatsApp ${BRAND.waDisplay}.</p>
@@ -2168,8 +2133,8 @@ function pagePrivacy(){
       <li><b>Dados de entrega:</b> morada, código postal, localidade e país.</li>
       <li><b>Dados de faturação:</b> NIF, quando o indicas para a fatura.</li>
       <li><b>Dados da encomenda e do pagamento:</b> peças escolhidas, valores, referência da encomenda, número de telemóvel usado no MB WAY e estado do pagamento. Não temos acesso aos dados da tua conta bancária.</li>
-      <li><b>Comunicações:</b> mensagens que nos envias pelo WhatsApp, Instagram ou e-mail, incluindo o resumo da tua encomenda.</li>
-      <li><b>Dados guardados no teu navegador:</b> o carrinho, os favoritos, as peças vistas recentemente e a referência das encomendas feitas neste dispositivo.</li>
+      <li><b>Comunicações:</b> mensagens que nos envias pelo WhatsApp, Instagram ou e-mail, incluindo o resumo da tua seleção ou encomenda.</li>
+      <li><b>Dados guardados no teu navegador:</b> o carrinho, a tua seleção, as peças vistas recentemente e a referência das encomendas feitas neste dispositivo.</li>
     </ul>
     <h2>3. Para que usamos os teus dados e com que fundamento</h2>
     <ul>
@@ -2204,7 +2169,7 @@ function pagePrivacy(){
     <h2>8. Segurança</h2>
     <p>Adotamos medidas técnicas e organizativas adequadas para proteger os teus dados contra perda, acesso não autorizado ou divulgação. Os dados de pagamento são tratados diretamente pelo prestador de pagamentos.</p>
     <h2>9. Cookies e armazenamento no navegador</h2>
-    <p>Usamos o armazenamento do teu navegador apenas para o funcionamento da loja (carrinho, favoritos e encomendas). Mais detalhes na <a href="#cookies">Política de cookies</a>.</p>
+    <p>Usamos o armazenamento do teu navegador apenas para o funcionamento da loja (carrinho, seleção e encomendas). Mais detalhes na <a href="#cookies">Política de cookies</a>.</p>
     <h2>10. Alterações a esta política</h2>
     <p>Podemos atualizar esta política. A data da última atualização está sempre indicada no topo desta página.</p>
     <p class="note">Texto preparado como base para a Vitrinii. Antes de publicar, preenche os campos assinalados e valida o conteúdo com apoio jurídico.</p>
@@ -2230,15 +2195,22 @@ let selCity="";
 function pageSelection(){
   const cat=catalog();const items=getSel().map(x=>({x,p:cat.find(p=>p.id===x.id)})).filter(o=>o.p);
   const buyable=items.filter(o=>orderable(o.p));
-  return `<div class="wrap page-head"><h1>Os meus <em>favoritos</em></h1><p>As peças que guardaste no coração. Passa para o carrinho as que quiseres encomendar.</p></div>
+  const msg=selMessage(selCity);
+  return `<div class="wrap page-head"><p class="eyebrow">Escolhe · envia · recebe</p><h1 style="margin-top:.5rem">A minha <em>seleção</em></h1><p>Guarda aqui as peças de que gostas e envia tudo numa só mensagem para a Vitrinii.</p></div>
   <div class="wrap two">
     <div>${items.length?`<div class="lines">${items.map(({x,p})=>`<div class="line"><a href="#p-${p.slug}"><img src="${p.img}" alt="" loading="lazy"></a>
-      <div><div class="nm"><a href="#p-${p.slug}" style="color:inherit;text-decoration:none">${esc(p.name)}</a></div><div class="sub">Ref. ${esc(p.ref)}</div>${p.price!=null?`<div class="sub">${eur(p.price)}</div>`:""}
-      <div class="ctl">${orderable(p)?`<button class="btn btn-primary btn-sm" data-act="add" data-id="${p.id}" data-v="${p.variants[0].id}">${ICON.bag} Adicionar ao carrinho</button>`:`<a class="btn btn-ghost btn-sm" href="#p-${p.slug}">Ver peça</a>`}<button class="link" data-act="sel-rm" data-id="${p.id}" style="font-size:.82rem;font-weight:500">Remover</button></div></div>
-      <div class="tot"></div></div>`).join("")}</div>`
+      <div><div class="nm">${esc(p.name)}</div><div class="sub">Ref. ${esc(p.ref)} · ${esc(variantLabel(p.variants[0]))}</div><div class="sub">${p.price!=null?eur(p.price)+" / unidade":"Preço a confirmar"}</div>
+      <div class="ctl"><div class="qty"><button data-act="sel-" data-id="${p.id}" aria-label="Diminuir quantidade">−</button><input aria-label="Quantidade" type="number" value="${x.qty}" min="1" readonly><button data-act="sel+" data-id="${p.id}" aria-label="Aumentar quantidade">+</button></div><button class="link" data-act="sel-rm" data-id="${p.id}" style="font-size:.82rem;font-weight:500">Remover</button></div></div>
+      <div class="tot tab">${p.price!=null?eur(p.price*x.qty):""}</div></div>`).join("")}</div>`
       :`<div class="empty-state"><h3>Ainda não guardaste peças</h3><p>Toca no coração de uma peça para a guardares aqui.</p><a class="btn btn-primary btn-sm" href="#loja">Explorar a coleção</a></div>`}</div>
-    ${buyable.length>1?`<aside class="panel aside" style="display:grid;gap:1rem"><h2 style="font-size:1.4rem">Gostas de todas?</h2><p style="font-size:.9rem;color:var(--muted)">Passa tudo para o carrinho de uma vez e envia a encomenda pelo WhatsApp.</p>
-      <button class="btn btn-primary btn-block" data-act="sel-cart">${ICON.bag} Adicionar tudo ao carrinho (${buyable.length})</button></aside>`:""}
+    ${items.length?`<aside class="panel aside" style="display:grid;gap:1rem"><h2 style="font-size:1.5rem">Enviar pelo WhatsApp</h2>
+      <p style="font-size:.9rem;color:var(--muted)">A mensagem abre já escrita na conversa com a Vitrinii. Para enviar, toca em <b>Enviar</b>.</p>
+      <div class="field"><label for="selCity">Localidade de entrega <span style="font-weight:400;color:var(--muted)">(opcional)</span></label><input id="selCity" class="input" value="${esc(selCity)}" autocomplete="address-level2"></div>
+      <a class="btn btn-wa btn-block" id="selWa" href="${waLink(msg)}" target="_blank" rel="noopener" data-act="sel-wa">${ICON.wa} Enviar a minha seleção</a>
+      <button class="btn btn-ghost btn-block" data-act="copy-sel">Copiar mensagem</button>
+      <label class="sr" for="selText">Mensagem</label><textarea id="selText" class="input summary" readonly style="min-height:180px">${esc(msg)}</textarea>
+      ${buyable.length?`<button class="btn btn-primary btn-block" data-act="sel-cart">${ICON.bag} Passar tudo para o carrinho (${buyable.length})</button>`:""}
+    </aside>`:""}
   </div>`;
 }
 function pageCare(){
@@ -2362,15 +2334,10 @@ function route(){
   $("#app").innerHTML=html;
   if(after)after();
   initHero();
-  initLazyVideo();
   markLoaded();
   window.scrollTo({top:0,behavior:"instant"});
   closeLayer();
 }
-function initLazyVideo(){document.querySelectorAll("video[data-lazyvideo]").forEach(v=>{
-  const go=()=>{if(!v.src){v.src=v.dataset.src;v.preload="auto"}const pr=v.play();if(pr&&pr.catch)pr.catch(()=>{})};
-  if(!("IntersectionObserver" in window)){go();return}
-  const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting)go();else if(v.src)v.pause()})},{rootMargin:"200px"});io.observe(v)})}
 function rerender(){const y=window.scrollY;route();window.scrollTo(0,y)}
 function rerenderKeepFocus(){setTimeout(()=>{const id=document.activeElement&&document.activeElement.id;rerender();if(id){const el=document.getElementById(id);if(el)el.focus({preventScroll:true})}},0)}
 function markLoaded(){document.querySelectorAll(".card-img img").forEach(i=>{if(i.complete&&i.naturalWidth)i.closest(".card-img").classList.add("loaded")})}
@@ -2389,9 +2356,6 @@ function setupPdp(){
     z.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openLightbox(img.src,img.alt)}});
     z.addEventListener("mouseleave",reset);
   }
-  const mg=$("#mgal");if(mg){const tr=mg.querySelector(".mgal-track"),dots=[...mg.querySelectorAll(".mgal-dots i")];
-    tr.addEventListener("scroll",()=>{const i=Math.round(tr.scrollLeft/tr.clientWidth);dots.forEach((d,k)=>d.classList.toggle("on",k===i))},{passive:true});
-    tr.addEventListener("click",e=>{const im=e.target.closest(".mgal-s");if(im){const g=im.querySelector("img");openLightbox(g.src,g.alt)}})}
   const sb=$("#stickyBuy");if(sb){document.body.classList.add("has-sticky");sb.classList.add("show")}
 }
 
@@ -2414,7 +2378,7 @@ function openDrawer(){
 function refreshCartViews(){if(currentRoute==="finalizar"||currentRoute==="whatsapp"){rerender();return}if($("#layer .drawer")){const c=normalizeCart();const b=$("#layer .drawer-body");b.innerHTML=c.notes.map(n=>`<div class="callout warn">${esc(n)}</div>`).join("")+(c.lines.length?c.lines.map(l=>lineHtml(l,true)).join(""):emptyCart());const f=$("#layer .drawer-foot");if(f){if(c.lines.length)f.firstElementChild.outerHTML=summaryHtml(c);else f.remove()}}if(currentRoute==="carrinho")rerender()}
 function openMenu(){
   $("#layer").innerHTML=`<nav class="mobile-nav" aria-label="Menu"><button class="icon-btn close" data-act="close" aria-label="Fechar menu">${ICON.close}</button>
-  ${[["inicio","Início"],["loja","Loja"],...CATS.map(c=>[c.id,c.label]),["sobre","Sobre"],["contactos","Contactos"],["envios","Envios"],["cuidados","Cuidados"],["selecao","Os meus favoritos"],["carrinho","Carrinho"],["encomendas","As minhas encomendas"]].map(([h,l])=>`<a href="#${h}">${l}</a>`).join("")}</nav>`;
+  ${[["inicio","Início"],["loja","Loja"],...CATS.map(c=>[c.id,c.label]),["sobre","Sobre"],["contactos","Contactos"],["envios","Envios"],["cuidados","Cuidados"],["selecao","A minha seleção"],["carrinho","Carrinho"],["encomendas","As minhas encomendas"]].map(([h,l])=>`<a href="#${h}">${l}</a>`).join("")}</nav>`;
   document.body.style.overflow="hidden";$("#layer .close").focus();
 }
 function openSearch(){
@@ -2448,14 +2412,14 @@ document.addEventListener("click",e=>{
     case "show":{const sh=$("#show");if(sh){sh.innerHTML=showcaseInner(+t.dataset.i);const b=sh.querySelector(`[data-i="${t.dataset.i}"]`);if(b)b.focus({preventScroll:true})}break}
     case "view":{const p=bySlug(currentRoute.slice(2));const vw=p&&p.views[+t.dataset.i];if(!vw)break;const img=$("#pdpImg");img.src=vw.src;const st=viewStyle(vw);img.dataset.base=st;img.setAttribute("style",st);$("#zoom").classList.remove("on");document.querySelectorAll(".thumb").forEach(b=>b.setAttribute("aria-pressed",b===t));$("#photoCap").textContent=vw.label+" · "+variantLabel(p.variants[0]);break}
     case "sel-":case "sel+":{const x=getSel();const it=x.find(y=>y.id===id);if(!it)break;it.qty=Math.max(1,Math.min(20,it.qty+(a==="sel+"?1:-1)));setSel(x);rerender();break}
-    case "sel-rm":setSel(getSel().filter(y=>y.id!==id));rerender();toast("Removida dos favoritos.");break;
+    case "sel-rm":setSel(getSel().filter(y=>y.id!==id));rerender();toast("Removida da tua seleção.");break;
     case "sel-wa":track("whatsapp_click",{source:"selecao",items:getSel().length});break;
     case "wa-send":{const c=normalizeCart();if(!c.lines.length){e.preventDefault();toast("O teu carrinho está vazio.");break}if(!waValid()){e.preventDefault();rerenderKeepFocus();setTimeout(()=>{const f=document.querySelector(".field.invalid .input");if(f)f.focus()},30);break}t.href=waLink(waMessage(c));track("whatsapp_click",{source:"finalizar",items:c.count});wa.sent=true;setTimeout(rerender,400);break}
     case "wa-done":setCart([]);wa={name:wa.name,phone:wa.phone,zone:wa.zone,city:wa.city,notes:"",gift:false,ref:"",errors:{},sent:false};toast("Obrigada! A Vitrinii vai responder-te no WhatsApp.");location.hash="inicio";break;
     case "copy-wa":{const tx=$("#waText")?$("#waText").value:waMessage(cartLines());copyText(tx,$("#waText"));break}
     case "copy-sel":copyText($("#selText").value,$("#selText"));break;
     case "sel-cart":{let n=0;getSel().forEach(x=>{const p=byId(x.id);if(orderable(p)&&addToCart(p.id,p.variants[0].id,x.qty))n++});if(n)openDrawer();break}
-    case "quick":{const p=byId(id);if(!p)break;if(orderable(p)){if(addToCart(p.id,p.variants[0].id,1))openDrawer();break}else{location.hash="p-"+p.slug;break}if(false){if(!inSel(id))toggleSel(id);else toast("Já está na tua seleção.");document.querySelectorAll(`.hover-cta[data-id="${id}"] span`).forEach(x=>x.textContent="Na tua seleção")}break}
+    case "quick":{const p=byId(id);if(!p)break;if(purchasable(p)){if(addToCart(p.id,p.variants[0].id,1))openDrawer()}else{if(!inSel(id))toggleSel(id);else toast("Já está na tua seleção.");document.querySelectorAll(`.hover-cta[data-id="${id}"] span`).forEach(x=>x.textContent="Na tua seleção")}break}
     case "order-wa":{const p=byId(id);const q=Math.max(1,parseInt(($("#qty")||{}).value||"1",10));if(p)t.href=waLink(orderText(p,q));track("whatsapp_click",{ref:p&&p.ref,source:"encomendar"});break}
     case "copy-share":{const tx=t.dataset.text;try{navigator.clipboard.writeText(tx).then(()=>toast("Copiado."),()=>toast("Não foi possível copiar."))}catch(err){toast("Não foi possível copiar.")}break}
     case "add-pdp":
