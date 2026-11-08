@@ -816,23 +816,58 @@ footer{background:linear-gradient(180deg,rgba(255,246,247,0) 0%,rgba(255,246,247
 .site-header .icon-btn{width:36px;height:40px}
 @media (max-width:820px){.dhero .media::after{top:auto;left:0;width:auto;height:30%;background:linear-gradient(180deg,rgba(227,191,195,0),rgba(227,191,195,.6))}}
 
-/* categorias em esteira contínua */
-.cat-belt{overflow:hidden;margin-inline:calc(-1 * var(--gut-l)) calc(-1 * var(--gut-r));-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-.cat-track{display:flex;gap:16px;width:max-content;animation:catBelt 38s linear infinite;padding-block:2px}
-.cat-belt:hover .cat-track,.cat-belt:focus-within .cat-track{animation-play-state:paused}
-@keyframes catBelt{to{transform:translateX(calc(-100% / 3))}}
-.cat-track,.trust .belt-track{animation-direction:reverse}
-.cat-track{animation:none!important;will-change:transform}
-.cat-belt{cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.cat-belt.dragging{cursor:grabbing}
-.cat-belt.dragging .dcat-w{pointer-events:none}
+/* categorias: carrossel com card central em destaque, encaixe e inércia */
+.cb{position:relative;margin-inline:calc(-1 * var(--gut-l)) calc(-1 * var(--gut-r));--cw:clamp(230px,24vw,330px)}
+.cat-belt{position:relative;overflow:hidden;padding-block:22px 26px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.cat-belt:focus-visible{box-shadow:inset 0 0 0 2px var(--rose-deep)}
+.cb.dragging .cat-belt{cursor:grabbing}
 .cat-belt img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
-.dcat-w{position:relative;flex:none;width:clamp(200px,21vw,290px)}
-.dcat-w .dcat{width:100%}
-.dcat .t{transition:transform .3s ease}
+.cat-track{display:flex;gap:18px;width:max-content;will-change:transform;animation:none!important}
+.dcat-w{position:relative;flex:none;width:var(--cw);transform-origin:50% 50%;will-change:transform,opacity;transition:filter .35s ease}
+.dcat-w .dcat{width:100%;aspect-ratio:2/3;border-radius:6px;transition:box-shadow .45s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.dcat-w.is-center .dcat{box-shadow:0 26px 50px -24px rgba(90,30,40,.55)}
+.dcat-w:not(.is-center){cursor:pointer}
+.dcat-w:not(.is-center) .hover-cta{pointer-events:none!important;opacity:0!important}
+.dcat-w .hover-cta{transition:opacity .35s ease,transform .35s ease}
+.dcat .t{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .dcat-w .hover-cta{left:.7rem;right:.7rem;bottom:.7rem}
-@media (hover:hover){.dcat-w:hover .hover-cta{opacity:1;transform:none;pointer-events:auto}.dcat-w:hover .dcat .t{transform:translateY(-58px)}}
-@media (max-width:820px){.dcat-w{width:58vw}.dcats .dcat:last-child{grid-column:auto;aspect-ratio:2/3}}
+.dcat-w .dcat .t span{opacity:.85}
+@media (hover:hover){
+  .dcat-w.is-center:hover .dcat{transform:translateY(-6px);box-shadow:0 34px 60px -26px rgba(90,30,40,.6)}
+  .dcat-w.is-center:hover .dcat>img{transform:scale(1.06)}
+  .dcat-w.is-center:hover .hover-cta{opacity:1;transform:none;pointer-events:auto}
+  .dcat-w.is-center:hover .dcat .t{transform:translateY(-58px)}
+  .dcat-w:not(.is-center):hover{filter:brightness(1.06)}
+  .dcat-w:not(.is-center):hover .dcat{transform:translateY(-4px)}
+  .dcat-w:hover .dcat>img{transform:none}
+  .dcat-w.is-center:hover .dcat>img{transform:scale(1.06)}
+}
+.cb.dragging .dcat-w .dcat{transform:none!important}
+.cb-arrow{position:absolute;top:calc(22px + var(--cw) * .75);transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:1px solid rgba(58,31,38,.12);background:rgba(255,255,255,.94);color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 28px -14px rgba(90,30,40,.45);transition:transform .25s ease,background .25s ease,color .25s ease,box-shadow .25s ease}
+.cb-arrow svg{width:20px;height:20px}
+.cb-arrow.prev{left:calc(50% - var(--cw) / 2 - 24px)}
+.cb-arrow.next{right:calc(50% - var(--cw) / 2 - 24px)}
+.cb-arrow:hover{background:var(--rose-deep);color:#fff;box-shadow:0 14px 30px -12px rgba(142,55,67,.6)}
+.cb-arrow.prev:hover{transform:translateY(-50%) translateX(-3px)}
+.cb-arrow.next:hover{transform:translateY(-50%) translateX(3px)}
+.cb-arrow:active{transform:translateY(-50%) scale(.92)!important}
+.cb-dots{display:flex;justify-content:center;gap:2px;margin-top:.4rem}
+.cb-dots button{background:none;border:0;padding:12px 5px;cursor:pointer;display:grid;place-items:center}
+.cb-dots i{position:relative;display:block;width:7px;height:7px;border-radius:999px;background:rgba(58,31,38,.2);overflow:hidden;transition:width .45s cubic-bezier(.2,.7,.2,1),background .3s}
+.cb-dots button:hover i{background:rgba(58,31,38,.38)}
+.cb-dots button.on i{width:38px;background:rgba(142,55,67,.22)}
+.cb-dots button.on i::after{content:"";position:absolute;inset:0;background:var(--grad-btn);transform-origin:0 50%;transform:scaleX(var(--p,1))}
+.cb-name{text-align:center;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);min-height:1.2em;margin-top:.1rem;transition:opacity .25s}
+@media (max-width:820px){
+  .cb{--cw:62vw}
+  .cat-track{gap:12px}
+  .cat-belt{padding-block:16px 20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .dcat-w .dcat{aspect-ratio:3/4}
+  .cb-arrow{display:none}
+  .dcats .dcat:last-child{grid-column:auto}
+}
+@media (max-width:420px){.cb{--cw:66vw}}
 
 
 /* telemóvel: caixinha "Adicionar à seleção" sempre visível */
@@ -1486,16 +1521,19 @@ function pageHome(){
 
   <section class="section"><div class="wrap">
     <div class="section-head"><div><p class="eyebrow">A coleção</p><h2 style="margin-top:.5rem">Encontra a tua <em>peça</em></h2></div><a class="btn btn-ghost btn-sm" href="#loja">Ver todas as peças</a></div>
-    <div class="cat-belt" aria-label="Categorias"><div class="cat-track">${(()=>{
+    <div class="cb" role="region" aria-roledescription="carrossel" aria-label="Categorias"><div class="cat-belt" tabindex="0" aria-label="Categorias: usa as setas do teclado para navegar"><div class="cat-track">${(()=>{
       const pic={brincos:"p14",colares:"p11",pulseiras:"p17",aneis:"p16",conjuntos:"p13"};
-      const one=(c,dup)=>{const n=count(c.id);const im=catImg[c.id];const p=cat.find(x=>x.id===pic[c.id]);const can=p&&purchasable(p);
+      let gi=0;const one=(c,dup)=>{const ix=gi++;const n=count(c.id);const im=catImg[c.id];const p=cat.find(x=>x.id===pic[c.id]);const can=p&&purchasable(p);
         const card=n&&im?`<a class="dcat" href="#${c.id}"${dup?' tabindex="-1"':""}><img src="${im[0]}" alt="" loading="lazy" style="object-position:${im[1]}"><span class="t"><h3>${c.label}</h3><span class="tab">${n} ${n===1?"peça":"peças"}</span></span></a>`
           :`<a class="dcat empty" href="#${c.id}"${dup?' tabindex="-1"':""}><span class="mk"><img src="img/simbolo-vitrinii.png" alt=""></span><span class="t"><h3>${c.label}</h3><span>${n?n+(n===1?" peça":" peças"):"Em breve"}</span></span></a>`;
         const cta=p?`<button class="hover-cta" data-act="quick" data-id="${p.id}"${dup?' tabindex="-1"':""} aria-label="Adicionar à seleção: ${esc(p.name)}">${ICON.bag}<span>${can?"Adicionar ao carrinho":inSel(p.id)?"Na tua seleção":"Adicionar à seleção"}</span></button>`:"";
-        return `<div class="dcat-w"${dup?' aria-hidden="true"':""}>${card}${cta}</div>`};
-      const set=CATS.map(c=>one(c,false)).join("");const dupl=CATS.map(c=>one(c,true)).join("");
-      return set+dupl+dupl;
+        return `<div class="dcat-w" data-i="${ix}" data-c="${esc(c.label)}"${dup?' aria-hidden="true"':""}>${card}${cta}</div>`};
+      return [0,1,2,3,4].map(k=>CATS.map(c=>one(c,k!==2)).join("")).join("");
     })()}</div></div>
+    <button class="cb-arrow prev" type="button" aria-label="Categoria anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="cb-arrow next" type="button" aria-label="Categoria seguinte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    <div class="cb-dots" role="tablist" aria-label="Escolher categoria">${CATS.map((c,k)=>`<button type="button" role="tab" data-d="${k}" aria-label="${esc(c.label)}"><i></i></button>`).join("")}</div>
+    </div>
   </div></section>
 
   <section class="section alt"><div class="wrap">
@@ -2485,35 +2523,85 @@ function navigate(){
   setTimeout(()=>{route();app.classList.remove("enter");void app.offsetWidth;app.classList.add("enter");requestAnimationFrame(()=>v.classList.remove("on"))},230);
 }
 window.addEventListener("hashchange",navigate);
-/* esteira das categorias: anda sozinha para a direita e pode ser arrastada */
-const CB={el:null,belt:null,x:0,setW:0,drag:false,hover:false,last:0,sx:0,so:0,moved:false,resumeAt:0,pid:null};
-const CB_SECONDS=38;
-function cbWrap(){if(!CB.setW)return;while(CB.x>=0)CB.x-=CB.setW;while(CB.x<-CB.setW)CB.x+=CB.setW}
-function cbMeasure(){if(CB.el){CB.setW=CB.el.scrollWidth/3;cbWrap()}}
-function cbBind(belt){
-  belt.addEventListener("pointerdown",e=>{if(e.button!==0)return;CB.drag=true;CB.moved=false;CB.sx=e.clientX;CB.so=CB.x;CB.pid=e.pointerId});
-  belt.addEventListener("pointermove",e=>{if(!CB.drag||e.pointerId!==CB.pid)return;const dx=e.clientX-CB.sx;if(!CB.moved&&Math.abs(dx)>6){CB.moved=true;belt.classList.add("dragging");try{belt.setPointerCapture(e.pointerId)}catch(_){}}if(CB.moved){CB.x=CB.so+dx;cbWrap()}});
-  const end=e=>{if(!CB.drag)return;CB.drag=false;belt.classList.remove("dragging");try{belt.releasePointerCapture(CB.pid)}catch(_){}if(e.pointerType!=="mouse")CB.resumeAt=performance.now()+1200};
-  belt.addEventListener("pointerup",end);belt.addEventListener("pointercancel",end);
-  belt.addEventListener("click",e=>{if(CB.moved){e.preventDefault();e.stopPropagation();CB.moved=false}},true);
-  belt.addEventListener("pointerenter",e=>{if(e.pointerType==="mouse")CB.hover=true});
-  belt.addEventListener("pointerleave",e=>{if(e.pointerType==="mouse")CB.hover=false});
+/* carrossel das categorias: arrastar (rato e dedo), inércia, encaixe no centro e avanço automático */
+const CB={root:null,belt:null,track:null,cards:[],dots:[],N:0,W:0,step:0,bw:0,x:0,v:0,target:0,mode:"idle",
+  drag:null,moved:false,hover:false,focus:false,visible:true,press:1,nextAt:0,last:0,wheelT:0,io:null};
+const CB_AUTO=4200;window.__CB=CB;
+const cbReduce=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
+function cbMeasure(){if(!CB.track||!CB.cards.length)return;const c0=CB.cards[0],c1=CB.cards[1];CB.W=c0.offsetWidth;CB.step=c1?c1.offsetLeft-c0.offsetLeft:CB.W+16;CB.bw=CB.belt.clientWidth}
+function cbNorm(){const N=CB.N;if(!N)return;let k=0;if(CB.x<1.5*N)k=N;else if(CB.x>=3.5*N)k=-N;if(k){CB.x+=k;CB.target+=k;if(CB.drag)CB.drag.x0+=k}}
+function cbGo(t,keepV){CB.target=t;CB.mode="spring";if(!keepV)CB.v=CB.v*.3;CB.nextAt=performance.now()+CB_AUTO*1.6}
+function cbStepBy(n){cbGo(Math.round(CB.mode==="spring"?CB.target:CB.x)+n)}
+function cbRender(){
+  const {W,step,bw,x,cards}=CB;if(!W)return;
+  CB.track.style.transform=`translate3d(${(bw/2-W/2-x*step).toFixed(2)}px,0,0)`;
+  const pr=CB.press;
+  for(let i=0;i<cards.length;i++){
+    const d=i-x,ad=Math.abs(d);
+    if(ad>4.5){if(cards[i]._v!==0){cards[i].style.opacity=0;cards[i]._v=0}continue}
+    const sc=(ad<=1?1-.16*ad:ad<=2?.84-.06*(ad-1):.78)*(ad<.5?pr:1);
+    const sh=(ad<=1?.08*ad:ad<=2?.08+.19*(ad-1):.27+.22*(ad-2))*W*Math.sign(d);
+    const op=ad<=1?1-.45*ad:ad<=2?.55-.25*(ad-1):.3;
+    const c=cards[i];c._v=1;
+    c.style.transform=`translate3d(${(-sh).toFixed(2)}px,0,0) scale(${sc.toFixed(4)})`;
+    c.style.opacity=op.toFixed(3);c.style.zIndex=String(100-Math.round(ad*10));
+    const center=ad<.5;if(center!==c._c){c._c=center;c.classList.toggle("is-center",center)}
+  }
+  const cur=((Math.round(x)%CB.N)+CB.N)%CB.N;
+  CB.dots.forEach((b,k)=>{const on=k===cur;if(on!==b._on){b._on=on;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)}});
+}
+function cbBind(){
+  const {belt,root}=CB;
+  const idxOf=e=>{const w=e.target.closest(".dcat-w");return w?+w.dataset.i:null};
+  belt.addEventListener("pointerdown",e=>{if(e.button!==0)return;CB.drag={sx:e.clientX,sy:e.clientY,x0:CB.x,pid:e.pointerId,s:[{t:performance.now(),x:CB.x}],type:e.pointerType};CB.moved=false;
+    if(CB.mode==="spring"){CB.mode="idle";CB.v=0}});
+  belt.addEventListener("pointermove",e=>{const D=CB.drag;if(!D||e.pointerId!==D.pid)return;const dx=e.clientX-D.sx,dy=e.clientY-D.sy;
+    if(!CB.moved){if(Math.abs(dx)>6&&Math.abs(dx)>Math.abs(dy)){CB.moved=true;root.classList.add("dragging");CB.mode="drag";try{belt.setPointerCapture(e.pointerId)}catch(_){}}else if(Math.abs(dy)>10&&D.type!=="mouse"){CB.drag=null;return}else return}
+    CB.x=D.x0-dx/CB.step;const now=performance.now();D.s.push({t:now,x:CB.x});while(D.s.length>2&&now-D.s[0].t>110)D.s.shift();cbNorm()});
+  const end=e=>{const D=CB.drag;if(!D)return;CB.drag=null;root.classList.remove("dragging");try{belt.releasePointerCapture(D.pid)}catch(_){}
+    if(!CB.moved)return;
+    const s=D.s,a=s[0],b=s[s.length-1],dt=(b.t-a.t)/1000;let v=dt>0.012&&performance.now()-b.t<90?(b.x-a.x)/dt:0;v=Math.max(-14,Math.min(14,v));
+    const proj=CB.x+v*.32;let t=Math.round(proj);const base=Math.round(CB.x);t=Math.max(base-4,Math.min(base+4,t));
+    if(Math.abs(v)>1.1)t=v>0?Math.max(t,Math.ceil(CB.x+.02)):Math.min(t,Math.floor(CB.x-.02));
+    CB.v=v;cbGo(t,true)};
+  belt.addEventListener("pointerup",end);belt.addEventListener("pointercancel",end);belt.addEventListener("lostpointercapture",end);
+  belt.addEventListener("click",e=>{if(CB.moved){e.preventDefault();e.stopPropagation();CB.moved=false;return}
+    const i=idxOf(e);if(i==null)return;const d=i-CB.x;if(Math.abs(d)>.5){e.preventDefault();e.stopPropagation();cbGo(Math.round(CB.x+d))}},true);
   belt.addEventListener("dragstart",e=>e.preventDefault());
+  belt.addEventListener("wheel",e=>{if(Math.abs(e.deltaX)<=Math.abs(e.deltaY)||!CB.step)return;e.preventDefault();CB.mode="wheel";CB.v=0;CB.x+=e.deltaX/CB.step;cbNorm();
+    clearTimeout(CB.wheelT);CB.wheelT=setTimeout(()=>cbGo(Math.round(CB.x)),130)},{passive:false});
+  belt.addEventListener("keydown",e=>{if(e.key==="ArrowLeft"){e.preventDefault();cbStepBy(-1)}else if(e.key==="ArrowRight"){e.preventDefault();cbStepBy(1)}});
+  root.addEventListener("pointerenter",e=>{if(e.pointerType==="mouse")CB.hover=true});
+  root.addEventListener("pointerleave",e=>{if(e.pointerType==="mouse"){CB.hover=false;CB.nextAt=performance.now()+CB_AUTO}});
+  root.addEventListener("focusin",e=>{let fv=false;try{fv=e.target.matches(":focus-visible")}catch(_){}CB.focus=fv;const i=idxOf(e);if(i!=null&&Math.abs(i-CB.x)>.5)cbGo(i)});
+  root.addEventListener("focusout",()=>{CB.focus=false});
+  root.querySelector(".cb-arrow.prev").addEventListener("click",()=>cbStepBy(-1));
+  root.querySelector(".cb-arrow.next").addEventListener("click",()=>cbStepBy(1));
+  CB.dots.forEach(b=>b.addEventListener("click",()=>{const N=CB.N,r=Math.round(CB.x),cur=((r%N)+N)%N;let d=+b.dataset.d-cur;if(d>N/2)d-=N;if(d<-N/2)d+=N;cbGo(r+d)}));
+  if("IntersectionObserver" in window){CB.io&&CB.io.disconnect();CB.io=new IntersectionObserver(es=>{CB.visible=es[0].isIntersecting});CB.io.observe(root)}
 }
 function cbFrame(t){
-  const el=document.querySelector(".cat-track");
-  if(el!==CB.el){CB.el=el;CB.drag=false;CB.hover=false;if(el){CB.belt=el.parentNode;cbBind(CB.belt);CB.setW=el.scrollWidth/3;CB.x=-CB.setW}}
-  if(el){
-    if(!CB.setW)cbMeasure();
-    const dt=Math.min(64,t-(CB.last||t));
-    const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if(!CB.drag&&!CB.hover&&!still&&t>CB.resumeAt&&CB.setW){CB.x+=CB.setW/CB_SECONDS*dt/1000;cbWrap()}
-    el.style.transform="translateX("+CB.x.toFixed(2)+"px)";
+  const root=document.querySelector(".cb");
+  if(root!==CB.root){CB.root=root;CB.drag=null;CB.hover=false;CB.focus=false;CB.visible=true;
+    if(root){CB.belt=root.querySelector(".cat-belt");CB.track=root.querySelector(".cat-track");CB.cards=[...CB.track.children];CB.dots=[...root.querySelectorAll(".cb-dots button")];
+      CB.N=CB.cards.length/5;CB.x=CB.target=2*CB.N;CB.v=0;CB.mode="idle";CB.nextAt=t+CB_AUTO;cbMeasure();cbBind()}}
+  if(root&&CB.N){
+    const dt=Math.min(.034,(t-(CB.last||t))/1000);
+    if(!CB.W)cbMeasure();
+    if(CB.mode==="spring"){const k=cbReduce()?400:120,c=2*Math.sqrt(k)*.86;const n=4,h=dt/n;
+      for(let j=0;j<n;j++){const a=-k*(CB.x-CB.target)-c*CB.v;CB.v+=a*h;CB.x+=CB.v*h}
+      cbNorm();if(Math.abs(CB.x-CB.target)<.0008&&Math.abs(CB.v)<.004){CB.x=CB.target;CB.v=0;CB.mode="idle";cbNorm();CB.nextAt=Math.max(CB.nextAt,t+CB_AUTO)}}
+    const pt=CB.mode==="drag"?.965:1;CB.press+=(pt-CB.press)*Math.min(1,dt*14);
+    const paused=CB.hover||CB.focus||CB.drag||CB.mode!=="idle"||document.hidden||!CB.visible||cbReduce();
+    if(paused){if(CB.mode!=="idle"||CB.drag)CB.nextAt=Math.max(CB.nextAt,t+CB_AUTO*.6);else CB.nextAt+=dt*1000}
+    else if(t>=CB.nextAt){cbGo(Math.round(CB.x)-1);CB.nextAt=t+CB_AUTO}
+    const on=CB.dots.find(b=>b._on);if(on)on.style.setProperty("--p",cbReduce()?1:Math.max(0,Math.min(1,1-(CB.nextAt-t)/CB_AUTO)).toFixed(3));
+    cbRender();
   }
   CB.last=t;requestAnimationFrame(cbFrame);
 }
-window.addEventListener("resize",cbMeasure);
-window.addEventListener("load",cbMeasure);
+window.addEventListener("resize",()=>{cbMeasure();cbRender()});
+window.addEventListener("load",()=>{cbMeasure();cbRender()});
 requestAnimationFrame(cbFrame);
 window.addEventListener("storage",e=>{if(e.key&&e.key.startsWith("vt_cart"))updateCount()});
 route();
